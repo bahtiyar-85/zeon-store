@@ -3,3 +3,7 @@
     height: 22px;
     margin-right: 5px;
 }
+.container {
+    max-width: 1168px;
+    padding: 0;
+}

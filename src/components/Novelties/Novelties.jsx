@@ -2,10 +2,10 @@ import React from 'react';
 import MoreButton from '../MoreButton/MoreButton';
 import ProductItem from '../ProductItem/ProductItem';
 
-const HitSales = () => {
+const Novelties = () => {
     return (
-        <div className='hit-sales d-flex flex-column align-items-center mt-5'>
-            <h2 className='title '>Хит продаж</h2>
+        <div className='novelties d-flex flex-column align-items-center mt-5'>
+            <h2 className='title '>Новинки</h2>
             <div className='w-100 d-flex justify-content-between'>
                 <ProductItem/>
                 <ProductItem/>
@@ -17,4 +17,4 @@ const HitSales = () => {
     );
 };
 
-export default HitSales;
+export default Novelties;

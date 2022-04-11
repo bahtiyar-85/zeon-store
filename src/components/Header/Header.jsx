@@ -7,10 +7,10 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <div className="header">
-            <Container>
+        <div className="header container">
+          
                 <Navibar/>
-            </Container>
+           
         </div>
     );
 };
