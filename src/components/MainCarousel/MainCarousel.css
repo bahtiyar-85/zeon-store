@@ -1,0 +1,17 @@
+
+.carousel-indicators [data-bs-target] {
+    width: 8px !important;
+    height: 8px !important;
+    border: 1px solid black !important;
+    border-radius: 50%;
+    background: none;
+}
+.carousel-indicators {
+    margin-bottom: -15px !important;
+}
+.active {
+    background: #000 !important;
+}
+.carousel-control-next, .carousel-control-prev {
+    display:none;
+}

@@ -1,0 +1,35 @@
+.navbar-item {
+    height: 60px;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 400;
+    font-style: regular;
+}
+.navbar-logo{
+    width: 15%;
+    cursor: pointer;
+}
+.navbar-logo-img {
+    width: 162px;
+    height: 70px;
+}
+
+.navbar-search {
+    width: 60%;
+    position: relative;
+}
+
+.navbar-search-icon {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+}
+.navbar-items {
+    width: 20%;
+}
+@media (max-width: 1200px){
+    .navbar-search{
+        width: 50%;
+        margin-left: 10px;
+    }
+}
