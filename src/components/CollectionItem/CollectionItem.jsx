@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoIosArrowForward } from "react-icons/io";
-import image from '../../images2/image4.png'
+import image from '../../images/image4.png'
 import './CollectionItem.css'
 
 const CollectionItem = () => {

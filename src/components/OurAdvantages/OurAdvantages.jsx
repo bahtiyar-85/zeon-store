@@ -1,9 +1,9 @@
 import React from 'react';
 import Advantage from '../Advantage/Advantage';
-import icon1 from '../../images2/money.png';
-import icon2 from '../../images2/truck.png';
-import icon3 from '../../images2/support.png';
-import icon4 from '../../images2/shop-2.png';
+import icon1 from '../../images/icons/money.png';
+import icon2 from '../../images/icons/truck.png';
+import icon3 from '../../images/icons/support.png';
+import icon4 from '../../images/icons/shop-2.png';
 
 const OurAdvantages = () => {
     const title1 = 'Удобные способы оплаты';

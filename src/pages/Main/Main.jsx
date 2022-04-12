@@ -7,18 +7,16 @@ import Novelties from '../../components/Novelties/Novelties';
 import OurAdvantages from '../../components/OurAdvantages/OurAdvantages';
 
 const Main = () => {
-    fetch('https://624ed42477abd9e37c8b92a5.mockapi.io/products')
-        .then(response => response.json())
-        .then(commits => console.log(commits));
+    
     return (
-        <div className='container main'>
-            
+        <div className='main'>
+            <Container>
                 <MainCarousel/>
                 <HitSales/>
                 <Novelties/>
                 <CollectionList/>
                 <OurAdvantages/>
-           
+            </Container>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductItem.css'
-import image from '../../images2/Rectangle1.png';
-import triangle from '../../images2/Rectangle384.png'
+import image from '../../images/Rectangle1.png';
+import triangle from '../../images/Rectangle384.png'
 import ProductColor from '../ProductColors/ProductColor';
 
 const ProductItem = ({props}) => {

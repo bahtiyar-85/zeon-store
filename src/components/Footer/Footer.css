@@ -1,0 +1,41 @@
+.footer {
+    background-color: #1D1D1B;
+    padding-top: 45px;
+
+    padding-bottom: 24px;
+    
+}
+.footer-items {
+    height: 105px;
+}
+.footer-logo {
+    width: 243px;
+    height: 105px;
+}
+.footer-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #E2E2E2;
+}
+.footer-list li{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+    opacity: .9;
+    list-style: none;
+    line-height: 2;
+}
+.footer-span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #B9B9B9;
+}
+.footer-list img {
+    margin-right: 5px;
+}
