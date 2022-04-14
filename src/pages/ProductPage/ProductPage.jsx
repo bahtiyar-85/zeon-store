@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { PRODUCTS_API } from '../../helpers/consts';
 import axios from 'axios';
+import { Container } from 'react-bootstrap';
+import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
 
 const ProductPage = () => {
 
@@ -13,20 +15,22 @@ const ProductPage = () => {
         try {
             let result = await axios.get(`${PRODUCTS_API}/${id}`)
             console.log('product id', result)
-            setProduct(result)
+            setProduct(result.data)
         } catch (error) {
             console.error(error)
         }
     }
 
     useEffect(()=>{
-       
-        console.log('id', id)
+        getProduct(id);
     },[])
     return (
-        <div>
-            <ProductCard product={product}/>
-        </div>
+        
+            <div className='container'>
+                <ProductCard {...product}/>
+                <SimilarProducts />
+            </div>
+       
     );
 };
 

@@ -1,0 +1,13 @@
+.similar {
+    width: 226px;
+}
+
+.similar-image {
+    /* width: 226px;
+    height: 332px; */
+    position: relative;
+}
+.similar-img {
+    width: 226px;
+    height: 332px;
+}

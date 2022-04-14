@@ -1,0 +1,30 @@
+.pagination {
+    width: 44px;
+    height: 44px;
+    margin: 5px;
+    background: #fff;
+    color: #979797;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.active {
+    width: 44px;
+    height: 44px;
+    margin: 5px;
+    background: #1D1D1B;
+    color: #fff;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
