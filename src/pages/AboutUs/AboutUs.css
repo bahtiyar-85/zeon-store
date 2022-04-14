@@ -1,15 +1,28 @@
 .about-us {
-
+    width: 100%;
+    padding:3vw 0;
 }
-.about-us img {
 
-}
 .about-us-images {
-    width: 70%;
+    width: 60%;
 }
 .about-us-images__left {
-    width: 95%;
+    width: 50%;
 }
 .about-us-images__right {
-    width: 95%;
+    width: 50%;
+}
+.about-us-items {
+    width: 40%;
+}
+.about-us-items span {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+.about-us-items p {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: #979797;
 }

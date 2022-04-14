@@ -7,6 +7,7 @@ import phone from '../../images/icons/phone.png';
 import email from '../../images/icons/email.png';
 import whatsup from '../../images/icons/whatsup.png';
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -19,9 +20,9 @@ const Footer = () => {
                     <div className='footer-items '>
                         <ul className='footer-list'>
                             <li><span  className='footer-title'>Компания</span></li>
-                            <li>О нас</li>
-                            <li>Новости</li>
-                            <li>Помощь</li>
+                            <Link to='/about-us' style={{ textDecoration: 'none' }}><li>О нас</li></Link>
+                            <Link to='/news' style={{ textDecoration: 'none' }}><li>Новости</li></Link>
+                            <Link to='/help'  style={{ textDecoration: 'none' }}><li>Помощь</li></Link>
                         </ul>
                     </div>
                     <div className='footer-items'>

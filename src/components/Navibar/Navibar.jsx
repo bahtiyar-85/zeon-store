@@ -18,12 +18,12 @@ const Navibar = () => {
             <div className='d-flex justify-content-between align-items-center navbar-item'>
                 <div>
                     <Navbar.Collapse > 
-                        <Link to='/about-us'><span className="me-3">О нас</span></Link>
-                        <span className="me-3">Коллекция</span>
-                        <span className="me-3">Новости</span>
+                        <Link to='/about-us' style={{ textDecoration: 'none' }}><span className="me-3">О нас</span></Link>
+                        <Link to='/collections' style={{ textDecoration: 'none' }}><span className="me-3 ">Коллекция</span></Link>
+                        <Link to='/news' style={{ textDecoration: 'none' }}><span className="me-3 ">Новости</span></Link>
                     </Navbar.Collapse> 
                 </div>
-                <span>Тел: +996 000 00 00 00</span>
+                <a href='tel:+996 000 00 00 00' style={{ textDecoration: 'none' }}><span>Тел: +996 000 00 00 00</span></a>
             </div>  
         </Navbar>   
       
