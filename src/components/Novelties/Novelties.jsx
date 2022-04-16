@@ -11,7 +11,6 @@ const Novelties = () => {
     async function getProduct(){
         try {
             let result = await axios.get(`${PRODUCTS_API}?page=${page}&limit=4`)
-            console.log(result)
             setProduct(result.data);
         } catch (error) {
             console.error(error)

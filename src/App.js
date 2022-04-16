@@ -10,6 +10,7 @@ import News from './pages/News/News';
 import Help from './pages/Help/Help';
 import './App.css'
 import ProductPage from './pages/ProductPage/ProductPage';
+import CollectionPage from './pages/CollectionPage/CollectionPage';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/news" element={<News/>} /> 
           <Route path="/help" element={<Help/>} /> 
           <Route path="/product/:id" element={<ProductPage/>} /> 
+          <Route path="/collection/:id" element={<CollectionPage/>} /> 
         </Routes>
         <Footer/>
     </BrowserRouter>

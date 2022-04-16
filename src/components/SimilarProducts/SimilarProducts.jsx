@@ -5,14 +5,13 @@ import SimilarCard from '../SimilarCard/SimilarCard';
 import './SimilarProducts.css';
 
 
-const SimilarProducts = () => {
+const SimilarProducts = ({title}) => {
     const [product, setProduct] = useState([]);
     const [page, setPage] = useState(1);
    
     async function getProducts(){
         try {
             let result = await axios.get(`${PRODUCTS_API}?page=${page}&limit=5`)
-            console.log('similar ', result)
             setProduct(result.data);
         } catch (error) {
             console.error(error)
@@ -22,10 +21,10 @@ const SimilarProducts = () => {
     useEffect(()=>{
         getProducts();
     },[])
-    
+
     return (
         <div className='similar-products mt-4 mb-5'>
-            <h2 className='title'>Похожие товары</h2>
+            <h2 className='title'>{title}</h2>
             <div className='d-flex '>
                 {product?.map((item, index)=>(
                         <SimilarCard {...item} key={index}/>

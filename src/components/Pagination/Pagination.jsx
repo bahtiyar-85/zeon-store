@@ -12,7 +12,7 @@ const Pagination = ({pages, active, setActive}) => {
     let items = [];
     for (let number = 1; number <= pages; number++) {
       items.push(
-        <div key={number} className={active!==number ? 'pagination' : 'active'} onClick={()=> handleClick(number)}>
+        <div key={number} className={active!==number ? 'pagination' : 'pag-active'} onClick={()=> handleClick(number)}>
           {number}
         </div>,
       );

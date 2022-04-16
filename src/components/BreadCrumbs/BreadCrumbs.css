@@ -1,0 +1,24 @@
+.breadcrumbs {
+    height: 60px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    
+}
+.breadcrumbs a {
+    color: #393939; 
+    text-decoration: none;
+}
+.crumbs-m {
+    padding: 0 18px;
+}
+.crumbs-activ {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #979797;
+}
