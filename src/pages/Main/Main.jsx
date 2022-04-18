@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import CollectionList from '../../components/CollectionList/CollectionList';
+import FloatingButton from '../../components/FloatingButton/FloatingButton';
 import HitSales from '../../components/HitSales/HitSales';
 import MainCarousel from '../../components/MainCarousel/MainCarousel';
 import Novelties from '../../components/Novelties/Novelties';
@@ -16,6 +17,7 @@ const Main = () => {
                 <Novelties/>
                 <CollectionList/>
                 <OurAdvantages/>
+                <FloatingButton/>
             </Container>
         </div>
     );

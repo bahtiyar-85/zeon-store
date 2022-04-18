@@ -1,0 +1,40 @@
+.modal-request .modal-header {
+    border: none;
+    padding: 0;
+    margin: 20px 38px 0 38px;
+}
+.modal-request .modal-body {
+    margin: 0 20px;
+}
+.modal-request .modal-content {
+    width: 436px;
+    height: 316px;
+}
+
+.modal-request p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+}
+.modal-request h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 125%;
+}
+.modal-request input {
+    height: 44px;
+    width: 360px;
+    background: #FFFFFF;
+    border: 1px solid rgba(31, 31, 31, 0.08);
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+.modal-request__btn {
+    height: 44px;
+    width: 360px;
+    background: #1D1D1B; 
+    color:#fff;
+}

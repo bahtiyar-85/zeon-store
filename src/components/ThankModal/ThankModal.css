@@ -1,0 +1,30 @@
+.thank-modal .modal-content {
+    width: 328px;
+    height: 264px;
+}
+.thank-modal .modal-body {
+   text-align: center;
+   margin-top: 5px;
+}
+.thank-modal button {
+    height: 44px;
+    width: 280px;
+    /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;  */
+    background: #1D1D1B;
+    color:#fff;  
+}
+.thank-modal h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    margin-top: 10px;
+}
+.thank-modal p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 150%;
+    margin-top: 10px;
+
+}

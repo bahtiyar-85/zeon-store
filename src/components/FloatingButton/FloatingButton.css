@@ -1,0 +1,17 @@
+.floating-button {
+ 
+     position: fixed;
+     right: 440px;
+     bottom: 220px;
+     cursor: pointer;
+     z-index: 1000;
+     user-select: none;
+
+}
+.float-bt__chat {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

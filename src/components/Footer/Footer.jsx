@@ -28,17 +28,17 @@ const Footer = () => {
                     <div className='footer-items'>
                         <ul className='footer-list'>
                             <li><span className='footer-title'>Контакты</span></li>
-                            <li><img src={phone} alt=''/>+996 500 123 456</li>
-                            <li><img src={phone} alt=''/>+996 500 123 456</li>
-                            <li><img src={email} alt=''/>mail@gmail.com</li>
+                            <a href='tel:+996 500 123 456' style={{ textDecoration: 'none' }}><li><img src={phone} alt=''/>+996 500 123 456</li></a>
+                            <a href='tel:+996 500 123 456' style={{ textDecoration: 'none' }}><li><img src={phone} alt=''/>+996 500 123 456</li></a>
+                            <a href='mailto:mail@gmail.com' style={{ textDecoration: 'none' }}><li><img src={email} alt=''/>mail@gmail.com</li></a>
                         </ul>
                     </div>
                     <div className='footer-items'>
                         <ul className='footer-list'>
                             <li><span  className='footer-title'>Мы в социальных сетях:</span></li>
-                            <li><img src={instagram} alt=''/>Instagram</li>
-                            <li><img src={telegram} alt=''/>Telegram</li>
-                            <li><img src={whatsup} alt=''/>Whatsapp </li>
+                            <a href='https://www.instagram.com/' style={{ textDecoration: 'none' }}><li><img src={instagram} alt=''/>Instagram</li></a>
+                            <a href='https://web.telegram.org/z/' style={{ textDecoration: 'none' }}><li><img src={telegram} alt=''/>Telegram</li></a>
+                            <a href='https://web.whatsapp.com/' style={{ textDecoration: 'none' }}><li><img src={whatsup} alt=''/>Whatsapp </li></a>
                         </ul>
                     </div>
                 </div>

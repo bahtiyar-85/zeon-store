@@ -39,3 +39,6 @@
 .footer-list img {
     margin-right: 5px;
 }
+.footer a {
+    text-decoration: none;
+}

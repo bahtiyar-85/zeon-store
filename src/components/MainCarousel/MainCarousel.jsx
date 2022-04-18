@@ -8,11 +8,12 @@ const MainCarousel = () => {
         
         <Carousel >
             <Carousel.Item interval={3000}>
-                <img
+                <a href=''><img
                     className="d-block w-100"
                     src={image}
                     alt="First slide"
                 />
+                </a>
             </Carousel.Item>
             <Carousel.Item interval={3000}>
                 <img
