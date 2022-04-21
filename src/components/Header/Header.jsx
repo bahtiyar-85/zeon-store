@@ -7,13 +7,13 @@ import './Header.css';
 
 
 
-const Header = () => {
+const Header = ({ setSearchValue }) => {
    
     
     return (
         <div className="header">
             <Container>
-                <Navibar/>
+                <Navibar setSearchValue={setSearchValue} />
                 {/* <Breadcrumb>
                     <Breadcrumb.Item href="/">Главная</Breadcrumb.Item>
                     <Breadcrumb.Item href="/collection">Коллекция</Breadcrumb.Item>

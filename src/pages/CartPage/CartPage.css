@@ -1,0 +1,14 @@
+.cart-page {
+    display: flex;
+}
+.cart-page-order {
+    width: 384px;
+}
+.cart-page-list {
+    width: 784px;
+}
+@media (max-width: 1168px){
+    .cart-page-list {
+        width: calc(100vw - 384px);
+    }
+}

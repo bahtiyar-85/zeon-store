@@ -14,7 +14,6 @@ const BreadCrumbs = () => {
 
     useEffect(()=>{
         const paths = location.pathname.split('/');
-        console.log('paths', paths);
         if(paths[1].includes('collection') && paths.length===3) {
             query(paths[2]);
         } else if(paths[1].includes('product') && paths.length===3){
@@ -25,7 +24,6 @@ const BreadCrumbs = () => {
     const query = async (id) => {
         try {
             let result = await axios.get(`${COLLECTIONS_API}/${id}`);
-            console.log('query result.data',result.data);
             setColTitle(result.data.title);
             setColId(result.data.id);
         } catch (error) {
@@ -37,8 +35,6 @@ const BreadCrumbs = () => {
         try {
             let result = await axios.get(`${PRODUCTS_API}/${id}`)
             setProdTitle(result.data.title);
-            console.log('queryProduct data',result.data);
-            console.log('queryProduct id',result.data['collection-id']);
             query(result.data['collection-id']);
         } catch (error) {
             console.error(error)
@@ -53,6 +49,12 @@ const BreadCrumbs = () => {
             case 'about-us':
                 buffer.push(<span key={2}  className='crumbs-activ'>О нас</span>);
                 break;
+            case 'search':
+                buffer.push(<span key={2}  className='crumbs-activ'>Результаты поиска</span>);
+                break; 
+            case 'cart':
+                 buffer.push(<span key={2}  className='crumbs-activ'>Корзина</span>);
+                break;       
             case 'news':
                 buffer.push(<span key={2} className='crumbs-activ'>Новости</span>);
                 break;

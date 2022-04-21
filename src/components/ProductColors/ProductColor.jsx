@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductColor.css';
 
-const ProductColor = () => {
-    let colorList = ['#73A39D', '#84CC4C', '#B5A8A1', '#AB844A','#6977F0','#FFFFF', '#141414',' #FF0000'];
+const ProductColor = ({color, setCurrentColor}) => {
+    const [active, setActive] = useState(0);
+    function handleClick(index, color){
+         setActive(index); 
+         setCurrentColor(color)  
+    }
     return (
         <div className='d-flex align-items-center'>
-            {colorList.map((data, index) => {
+            {color?.map((data, index) => {
                 return (
-                    <div className='colors' key={index} style={{backgroundColor: data
-                    }}>
+                    <div className={active!==index ? 'colors' : 'colors__active'} onClick={()=> handleClick(index, data)} key={index}>
+                        <div className='colors__round' style={{backgroundColor: data}}>
+                        </div>
                     </div>
                 )
                 })}

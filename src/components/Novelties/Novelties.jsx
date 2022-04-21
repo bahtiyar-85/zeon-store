@@ -25,7 +25,7 @@ const Novelties = () => {
     return (
         <div className='novelties d-flex flex-column align-items-center mt-5'>
             <h2 className='title '>Новинки</h2>
-            <div className='w-100 '>
+            <div className='w-100 d-flex'>
 
                     {product?.map((item, index)=>(
                         

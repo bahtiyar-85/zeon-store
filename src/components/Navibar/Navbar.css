@@ -30,6 +30,27 @@
 .none-underline {
     text-decoration: none;
 }
+.navbar-cart {
+    position: relative
+}
+.cart-badges {
+    background-color: #E5271B;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart-badges_none {
+    display: none;
+}
 @media (max-width: 1200px){
     .navbar-search{
         width: 50%;

@@ -1,0 +1,57 @@
+.ordering-modal h5 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+.ordering-modal span {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #808080;
+}
+.ordering-modal input {
+    width: 100%;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-sizing: border-box;
+    padding: 12px;
+
+   
+}
+.ordering-modal .modal-content {
+    width: 440px;
+    height: 672px;
+    padding: 24px;
+}
+.ordering-modal .modal-header {
+    border-bottom: none;
+    padding: 0;
+}
+.ordering-modal .modal-body {
+    padding: 0;
+}
+.ordering-model-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+}
+.ordering-modal-btn {
+    width: 100%;
+    height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 45px 0;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;
+}
+.ordering-model-check {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.ordering-modal input::-webkit-input-placeholder { color: #D0D0D0; }
+.ordering-modal input:-moz-placeholder { color: #D0D0D0; }
+.ordering-modal input::-moz-placeholder { color: #D0D0D0; }
+.ordering-modal input:-ms-input-placeholder { color: #D0D0D0; }

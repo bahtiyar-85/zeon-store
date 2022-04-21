@@ -1,8 +1,26 @@
-.colors {
+.colors__round {
     width: 10px;
     height: 10px;
+   
+    opacity: 0.5;
+    border-radius: 4px;
+}
+.colors__active {
+    width: 15px;
+    height: 15px;
+    border: 1px dashed blue;
+    cursor: pointer;
     display: flex;
-    margin-right: 20px;
-    opacity: 0.47;
-    border-radius: 4px
+    margin-right: 8px;
+    justify-content: center;
+    align-items: center;
+}
+.colors {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    display: flex;
+    margin-right: 8px;
+    justify-content: center;
+    align-items: center;
 }
