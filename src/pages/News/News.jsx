@@ -1,22 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NewsItem from '../../components/NewsItem/NewsItem';
 import './News.css';
 import image from '../../images/Rectangle2.png'
 import { Container } from 'react-bootstrap';
+import { NEWS_API } from '../../helpers/consts';
+import axios from 'axios';
+import FloatingButton from '../../components/FloatingButton/FloatingButton';
 
 const News = () => {
-    const title='Lorem ipsum dolor sit amet';
-    const text='Sit ullamcorper at gravida quis feugiat. Laoreet leo dolor, dui eget sit viverra justo, malesuada. Viverra pharetra, augue neque felis enim dui id cum. At pellentesque diam nulla ac amet quisque quis. Est consectetur ullamcorper curabitur quis viverra hac molestie. Elit pulvinar congue ut amet adipiscing felis tincidunt. Amet quis varius aliquam hendrerit tempus. Sed sit diam quis scelerisque congu econgu econgu econguecongu econguecon guecon guecon guecong ueconguecong uec ongue. Sit ullamcorper at gravida quis feugiat. Laoreet leo dolor, dui eget sit viverra justo, malesuada. Viverra pharetra, augue neque  Sit ullamcorper at gravida quis feugiat. Laoreet leo dolor, dui eget sit viverra justo, malesuada. Viverra pharetra, augue neque felis enim dui id cum. At pellentesque diam nulla ac amet quisque quis. Est consectetur ullamcorper curabitur quis viverra hac molestie. Elit pulvinar congue ut amet adipiscing felis tincidunt. Amet quis varius aliquam hendrerit tempus. Sed sit diam quis ';
+  
+    const [news, setNews] = useState([]);
+    const [page, setPage] = useState(1);
+    const [fetching, setFetching] = useState(true);
+    const [finished, setFinished] = useState(false);
     
+    async function getNews(){
+        try {
+            let result = await axios.get(`${NEWS_API}?page=${page}&limit=8`)
+            setNews([...news, ...result.data]);
+            if(result.data.length<8) setFinished(true);
+            setPage(prevState => prevState + 1 )
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setFetching(false);
+        }
+    }
+    const handlerScroll = (e) => {
+        if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)<100){
+            setFetching(true);
+            console.log('scrollH');
+        }
+
+    }
+    useEffect(()=>{
+        if(fetching && !finished){
+            console.log('fetching');
+            getNews();
+        }  
+    },[fetching]);
+
+    useEffect(()=> {
+        document.addEventListener('scroll', handlerScroll);
+        return function() {
+            document.removeEventListener('scroll', handlerScroll);
+        }
+    },[])
     return (
-        <div>
-            <Container>
+        <div className='container'>
+           
                 <h2 className='title'>Новости</h2>
                 <div >
-                    <NewsItem image={image} title={title} text={text}/>
-                    <NewsItem image={image} title={title} text={text}/>
+                    {news.map((item, index) => (
+                        <NewsItem image={item.image} title={item.title} text={item.content} key={index}/>
+                    ))}
                 </div >
-            </Container>
+            <FloatingButton/>
         </div>
     );
 };

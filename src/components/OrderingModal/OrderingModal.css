@@ -3,11 +3,13 @@
     font-size: 20px;
     line-height: 24px;
 }
-.ordering-modal span {
+.ordering-modal label {
+    width: 100%;
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
     color: #808080;
+    margin-bottom: 10px;
 }
 .ordering-modal input {
     width: 100%;

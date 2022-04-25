@@ -4,6 +4,7 @@ import './Collections.css';
 import { COLLECTIONS_API } from '../../helpers/consts';
 import axios from 'axios';
 import Pagination from '../../components/Pagination/Pagination';
+import FloatingButton from '../../components/FloatingButton/FloatingButton';
 
 const Collections = () => {
 
@@ -44,6 +45,7 @@ const Collections = () => {
                 <div className='d-flex flex-row-reverse mb-5 mt-4'>
                     <Pagination pages={pages} active={page} setActive={setPage}/>
                 </div>
+                <FloatingButton/>
         </div>
     );
 };

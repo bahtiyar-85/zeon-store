@@ -7,4 +7,15 @@
     width: 1168px;
     padding: 0;
 }
+@media (max-width:576px){
+    .container{
+        width: 100vw-5vw;
+    }
+}
+@media (max-width:576px){
+    .container {
+        width: 100vw;
+    }
+}
+
 

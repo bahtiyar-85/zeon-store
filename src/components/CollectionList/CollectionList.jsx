@@ -6,39 +6,45 @@ import axios from 'axios';
 
 const CollectionList = () => {
     const [collection, setCollection] = useState([]);
-    const [page, setPage] = useState(1);
+    const [newCol, setNewCol] = useState([]);
 
     async function getCollection(){
         try {
-            let result = await axios.get(`${COLLECTIONS_API}?page=${page}&limit=4`)
+            let result = await axios.get(`${COLLECTIONS_API}`)
             setCollection(result.data);
         } catch (error) {
             console.error(error)
+        } 
+    }
+
+    function getNewArray(){
+        const length = collection.length;
+        const newArray = [];
+        for(let i=0; i<4; i++){
+            let randomIndex = Math.floor(Math.random() * length);
+            newArray.push(collection[randomIndex]);
         }
-        
-    }
-    function handleClick() {
-        setPage(page+1)
-    }
+        setNewCol(newArray);
+    } 
 
     useEffect(()=>{
         getCollection();
     },[])
 
     useEffect(()=>{
-        getCollection();
-    },[page])
+        getNewArray()
+    },[collection])
 
     return (
         <div className='d-flex flex-column align-items-center mt-5'>
             <h2 className='title '>Коллекция</h2>
             <div className='d-flex justify-content-between'>
-                {collection?.map((item, index)=>(
+                {newCol?.map((item, index)=>(
                     <CollectionItem {...item} key={index}/>
                 ))}
             </div>
             <div className='mt-4'>
-                <MoreButton handleClick={handleClick}/>
+                <MoreButton handleClick={getNewArray}/>
 
             </div>
         </div>

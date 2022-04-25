@@ -3,27 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const favoriteSlice = createSlice({
-    name: 'favorite',
+    name: 'favor',
     initialState: {
-        itemInCart: localStorage.getItem("favorite")
-        ? JSON.parse(localStorage.getItem("favorite"))
+        prodFav: localStorage.getItem("favor")
+        ? JSON.parse(localStorage.getItem("favor"))
         : [],
     },
     reducers: {
-        addFavor: (state, action) => {
-            const duplicate = state.itemInCart.findIndex(
-                (item) => item.cartId === action.payload.cartId
+        checkFavor: (state, action) => {
+            const index = state.prodFav.findIndex(
+                (item) => item.id === action.payload.id
             );
-            if(duplicate<0) state.itemInCart.push(action.payload);
+            if(index<0) state.prodFav.push(action.payload);
+            else {
+                state.prodFav.splice(index ,1);
+            }
             
-            localStorage.setItem("favorite", JSON.stringify(state. itemInCart));
+            localStorage.setItem("favor", JSON.stringify(state.prodFav));
         },
-        deleteItemFromCart: (state, action) => {
-            state.itemInCart = state.itemInCart.filter(item => item.cartId !== action.payload);
-            
-            localStorage.setItem("favorite", JSON.stringify(state.itemInCart));
-        }
     }
 })
-export const {} = favoriteSlice.actions;
+export const { checkFavor } = favoriteSlice.actions;
 export default favoriteSlice.reducer; 

@@ -5,6 +5,7 @@ import CartItem from '../../components/CartItem/CartItem';
 import OrderingModal from '../../components/OrderingModal/OrderingModal';
 import ThankModal from '../../components/ThankModal/ThankModal';
 import './CartPage.css';
+import FloatingButton from '../../components/FloatingButton/FloatingButton';
 
 
 const CartPage = () => {
@@ -30,6 +31,7 @@ const CartPage = () => {
             </div>
             <OrderingModal show={show} setShow={setShow} handleShowModal={handleShowModal}/>
             <ThankModal showModal={showModal} setShowModal={setShowModal}/>
+            <FloatingButton/>
         </div>
     );
 };

@@ -6,31 +6,45 @@ import axios from 'axios';
 
 const HitSales = () => {
     const [product, setProduct] = useState([]);
-    const [page, setPage] = useState(1);
+    const [randomProduct, setRandomProduct] = useState([]);
    
     async function getProduct(){
         try {
-            let result = await axios.get(`${PRODUCTS_API}?page=${page}&limit=8`)
-            // console.log(result)
+            let result = await axios.get(`${PRODUCTS_API}`)
+
             setProduct(result.data);
+            getNewArray();
         } catch (error) {
             console.error(error)
         }
     }
+    function getNewArray(){
+        const length = product.length;
+        const newArray = [];
+        for(let i=0; i<8; i++){
+            let randomIndex = Math.floor(Math.random() * length);
+            newArray.push(product[randomIndex]);
+        }
+        setRandomProduct(newArray);
+    } 
 
     useEffect(()=>{
         getProduct();
     },[])
-    
+
+    useEffect(()=>{
+        getNewArray();
+    },[product]);
+
     return (
         <div className='hit-sales d-flex flex-column align-items-center mt-5'>
             <h2 className='title '>Хит продаж</h2>
             <div className='w-100 d-flex justify-content-between flex-wrap'>
-                {product?.map((item, index)=>(
+                {randomProduct?.map((item, index)=>(
                     <ProductItem {...item} key={index}/>
                 ))}
             </div>
-            <MoreButton/>
+            <MoreButton handleClick={getNewArray}/>
         </div>
     );
 };

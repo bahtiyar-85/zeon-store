@@ -8,13 +8,15 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import Collections from './pages/Collections/Collections';
 import News from './pages/News/News';
 import Help from './pages/Help/Help';
-import './App.css'
 import ProductPage from './pages/ProductPage/ProductPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import CartPage from './pages/CartPage/CartPage';
+import FavoritePage from './pages/FavoritePage/FavoritePage';
+import 'swiper/css';
+import './App.css';
 
 
 const App = () => {
@@ -33,8 +35,9 @@ const App = () => {
             <Route path="/collection/:id" element={<CollectionPage/>} /> 
             <Route path="/search" element={<SearchPage searchValue={searchValue} />} /> 
             <Route path="/cart" element={<CartPage/>} />
+            <Route path="/favorite" element={<FavoritePage/>} />
           </Routes>
-          <Footer/>
+        <Footer/>
       </BrowserRouter>
     </Provider>
   );

@@ -12,7 +12,7 @@ const Header = ({ setSearchValue }) => {
     
     return (
         <div className="header">
-            <Container>
+            <div className='container'>
                 <Navibar setSearchValue={setSearchValue} />
                 {/* <Breadcrumb>
                     <Breadcrumb.Item href="/">Главная</Breadcrumb.Item>
@@ -20,7 +20,7 @@ const Header = ({ setSearchValue }) => {
                     <Breadcrumb.Item active>Data</Breadcrumb.Item>
                 </Breadcrumb> */}
                 <BreadCrumbs />
-            </Container>
+            </div>
         </div>
     );
 };

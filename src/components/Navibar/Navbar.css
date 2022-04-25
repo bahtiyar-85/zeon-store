@@ -4,6 +4,10 @@
     font-size: 17px;
     font-weight: 400;
     font-style: regular;
+    border-bottom: 1px solid #EEEEEE;
+}
+.nabvar-logo-search{
+    border-bottom: 1px solid #EEEEEE;
 }
 .navbar-logo{
     width: 15%;
@@ -36,13 +40,14 @@
 .cart-badges {
     background-color: #E5271B;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     position: absolute;
-    top: -5px;
-    left: 15px;
+    top: -3px;
+    left: 12px;
     color: #fff;
+    font-size: 10px;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -51,9 +56,116 @@
 .cart-badges_none {
     display: none;
 }
+.navbar-fav {
+    position: relative;
+}
+.navbar-fav span {
+    font-size: 10px;
+}
+.navbar-fav .bg-primary {
+    background-color: #E5271B !important;
+}
+.navbar-fav .badge {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    left: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-items .badge{
+    position: absolute;
+    top: -5px;
+    left: 15px;
+}
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
+    border-radius: 4px;
+}
+.dropdown-items {
+    padding: 10px;
+    cursor: pointer;
+    border-top: 1px solid #EEEEEE
+}
+.navbar-search:hover .dropdown-list {
+    opacity: 1;
+    visibility: visible;
+}
+.navbar-collapse-list {
+    display: none;
+}
+
 @media (max-width: 1200px){
     .navbar-search{
         width: 50%;
         margin-left: 10px;
+    }
+}
+
+@media (max-width:992px){
+    .navbar-search{
+        width: 40%;
+        margin-left: 10px;
+    }
+    .navbar-logo {
+        width: 100px;
+    }
+    .navbar-logo-img {
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-width:770px){
+    .navbar-fav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .navbar-cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .navbar-fav .badge {
+        position: absolute;
+        top: -3px;
+        left: 45px;  
+    }
+    .cart-badges{
+        position: absolute;
+        top: -3px;
+        left: 35px; 
+    }
+}
+@media (max-width:576px){
+    .navbar-list-hide {
+        display: none;
+    }
+    .nabvar-logo-search {
+        display: none !important;
+    }
+    .navbar-fav .badge {
+        position: absolute;
+        top: -3px;
+        left: 12px;  
+    }
+    .cart-badges{
+        position: absolute;
+        top: -3px;
+        left: 12px; 
     }
 }

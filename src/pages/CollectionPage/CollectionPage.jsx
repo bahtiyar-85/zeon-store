@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
+import FloatingButton from '../../components/FloatingButton/FloatingButton';
 
 const CollectionPage = () => {
     const [product, setProduct] = useState([]);
@@ -59,6 +60,7 @@ const CollectionPage = () => {
                 </div>
             </div> 
             <SimilarProducts title={'Новинки'}/>
+            <FloatingButton/>
         </div>
     );
 };

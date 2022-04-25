@@ -11,14 +11,14 @@ const Main = () => {
     
     return (
         <div className='main'>
-            <Container>
+            <div className='container'>
                 <MainCarousel/>
                 <HitSales/>
                 <Novelties/>
                 <CollectionList/>
                 <OurAdvantages/>
                 <FloatingButton/>
-            </Container>
+            </div>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './BreadCrumbs.css';
 import { COLLECTIONS_API, PRODUCTS_API } from '../../helpers/consts';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const BreadCrumbs = () => {
@@ -44,13 +44,16 @@ const BreadCrumbs = () => {
     const  crumbs = () => {
         const paths = location.pathname.split('/');
         let buffer = [];
-        buffer.push(<span key={1} className='br'><a href='/'>Главная</a><span className='crumbs-m'>/</span></span>);
+        buffer.push(<span key={1} className='br'><Link to='/'>Главная</Link><span className='crumbs-m'>/</span></span>);
         switch (paths[1]){
             case 'about-us':
                 buffer.push(<span key={2}  className='crumbs-activ'>О нас</span>);
                 break;
             case 'search':
                 buffer.push(<span key={2}  className='crumbs-activ'>Результаты поиска</span>);
+                break; 
+            case 'favorite':
+                buffer.push(<span key={2}  className='crumbs-activ'>Избранное</span>);
                 break; 
             case 'cart':
                  buffer.push(<span key={2}  className='crumbs-activ'>Корзина</span>);
@@ -65,10 +68,10 @@ const BreadCrumbs = () => {
                 buffer.push(<span key={2}  className='crumbs-activ'>Коллекции</span>);
                 break;
             case 'collection':
-                buffer.push(<span key={2} ><a href='/collections'>Коллекции</a><span className='crumbs-m'>/</span><span className='crumbs-activ'>{colTitle}</span></span>);
+                buffer.push(<span key={2} ><Link to='/collections'>Коллекции</Link><span className='crumbs-m'>/</span><span className='crumbs-activ'>{colTitle}</span></span>);
                 break;
             case 'product':
-                buffer.push(<span key={2} ><a href='/collections'>Коллекции</a><span className='crumbs-m'>/</span><a href={`/collection/${colId}`}>{colTitle}</a><span className='crumbs-m'>/</span><span className='crumbs-activ'>{prodTitle}</span></span>);
+                buffer.push(<span key={2} ><Link to='/collections'>Коллекции</Link><span className='crumbs-m'>/</span><Link to={`/collection/${colId}`}>{colTitle}</Link><span className='crumbs-m'>/</span><span className='crumbs-activ'>{prodTitle}</span></span>);
                 break;
         }
         return buffer;
