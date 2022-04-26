@@ -12,3 +12,13 @@
         width: calc(100vw - 384px);
     }
 }
+@media (max-width: 770px){
+   .cart-page {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+   }
+   .cart-page-list {
+        width: 70vw;
+   }
+}

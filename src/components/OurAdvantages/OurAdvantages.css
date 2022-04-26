@@ -1,0 +1,19 @@
+.our-advantages {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width:1000px) {
+    .our-advantages {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
+@media (max-width:775px) {
+    .our-advantages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}

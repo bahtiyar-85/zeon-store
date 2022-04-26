@@ -12,8 +12,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='footer'>
-            <Container>
-                <div className='d-flex flex-wrap justify-content-between me-5'>
+            <div className='container'>
+                <div className='me-5 footer-contant'>
                     <div className='footer-logo'>
                         <img src={logo} alt='Логотип'/>
                     </div>
@@ -42,10 +42,10 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='mt-3'>
+                <div className='mt-3 footer-dev'>
                     <span className='footer-span'>Developed by Zeon 2022</span>
                 </div>
-            </Container>
+            </div>
         </div>
     );
 };

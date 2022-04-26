@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
 import image1 from '../../images/about-image1.png';
 import image2 from '../../images/about-image2.png';
@@ -13,7 +12,7 @@ const AboutUs = () => {
             <div className='about-us d-flex justify-content-between '>
                 <div className='about-us-images d-flex'>
                     <div className='about-us-images__left'>
-                        <img className='' style={{marginBottom: '2vw'}} src={image1} alt=''/>
+                        <img className='' src={image1} alt=''/>
                         <img className='' src={image2} alt=''/>
                     </div>
                     <div className='about-us-images__right d-flex align-items-center'>
@@ -27,7 +26,7 @@ const AboutUs = () => {
                     </div>
                 </div>
                 <FloatingButton/>
-             </div>
+            </div>
         </div>
     );
 };

@@ -1,6 +1,10 @@
-.advantage {
+.advantage-container {
     width: 286px;
     height: 248px;
+}
+.advantage {
+    width: 286;
+    height: 100%;
 
 }
 .advantage-img {

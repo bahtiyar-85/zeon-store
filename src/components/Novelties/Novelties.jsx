@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import MoreButton from '../MoreButton/MoreButton';
 import ProductItem from '../ProductItem/ProductItem';
 import { PRODUCTS_API } from '../../helpers/consts';
@@ -37,18 +38,41 @@ const Novelties = () => {
     },[product]);
 
     return (
-        <div className='novelties d-flex flex-column align-items-center mt-5'>
-            <h2 className='title '>Новинки</h2>
-            <div className='w-100 d-flex'>
-
+        <div className='novelties mt-5'>
+            <div className='d-flex justify-content-center'>
+                <h2 className='title '>Новинки</h2>
+            </div>
+            <Swiper
+                    breakpoints={{
+                        290: {
+                          width: 290,
+                          slidesPerView: 1,
+                        },
+                        574: {
+                            width: 574,
+                            slidesPerView: 2,
+                        },
+                        862: {
+                            width: 862,
+                            slidesPerView: 3,
+                        },
+                        1150: {
+                            width: 1150,
+                            slidesPerView: 4,
+                        },
+                      }}
+                    spaceBetween={10}
+                >
                     {randomProduct?.map((item, index)=>(
-                        
-                            <ProductItem {...item} key={index}/>
-                        
+                        <SwiperSlide key={index}>
+                            <ProductItem {...item} />
+                        </SwiperSlide>
                         ))}
                 
+            </Swiper>
+            <div className='d-flex justify-content-center'>
+                <MoreButton handleClick={getNewArray}/>
             </div>
-            <MoreButton handleClick={getNewArray}/>
         </div>
     );
 };
