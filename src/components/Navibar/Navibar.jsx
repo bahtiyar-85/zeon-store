@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Badge, Navbar, NavbarBrand, NavItem, } from 'react-bootstrap';
+import { Badge, Navbar, NavbarBrand } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import './Navbar.css';
 import logo from '../../images/zeon-logo.png';
 import search from '../../images/icons/search-icon.png';
 import favorite from '../../images/icons/favorite-icon.png';
@@ -9,6 +8,7 @@ import shopping from '../../images/icons/shopping-bag.png';
 import { useSelector } from 'react-redux';
 import { Scrollbars } from '../../react-custom-scrollbars';
 import NavbarCollapse from '../NavbarCollapse/NavbarCollapse';
+import './Navbar.css';
 
 
 
@@ -84,7 +84,9 @@ const Navibar = ({ setSearchValue }) => {
                 <Link to='/favorite' style={{ textDecoration: 'none' }}>
                     <span className='navbar-fav'>
                         <img className='icon-header' src={favorite} />
-                        <Badge>{favorit.prodFav.length}</Badge>Избранное
+                        {favorit.prodFav.length ? (
+                            <Badge>{favorit.prodFav.length}</Badge>
+                        ) :(null)}Избранное
                     </span>
                 </Link>
                 <Link to='/cart' style={{ textDecoration: 'none' }}>

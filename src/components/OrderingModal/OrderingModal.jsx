@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal } from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import 'react-phone-number-input/style.css'
+import PhoneInputWithCountry from 'react-phone-number-input/react-hook-form'
 import './OrderingModal.css';
 
-const OrderingModal = ({show, setShow}) => {
+const OrderingModal = ({show, setShow, handleShowModal}) => {
+    
     const {
-      register,
-      formState: {
-        errors, isValid,
-      },
-      handleSubmit,
-      reset,
-    } = useForm({mode:"onBlur"});
+        register,
+        control,
+        formState: {
+          errors, isValid,
+        },
+        handleSubmit,
+        reset,
+      } = useForm({mode:"onBlur"});
 
     const handleClose = () => setShow(false);
     
-    function handleOrdering(e){
-        // e.preventDefault();
-        // handleClose();
-        // handleShowModal();  
-    }
+   
     const onSubmit = (data) => {
         alert(JSON.stringify(data));
         reset();
+        // e.preventDefault();
+        handleClose();
+        handleShowModal();  
     }
+    console.log('Phone', errors.phoneInput);
     return (
       <>
   
@@ -33,68 +38,83 @@ const OrderingModal = ({show, setShow}) => {
           </Modal.Header>
           <Modal.Body>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <label>Ваше имя
+                <label className={errors.firstName ? 'label__error'  : 'label__isvalid'}>Ваше имя
                   <input 
+                      className={errors.firstName ? 'input__error' : 'input__isvalid'}
                       type='text' 
                       placeholder='Например Иван'
                       {...register('firstName', {
-                        required:"Поле обязательно к заполнению",
+                        required:'Error',
                       }) }
                       />
                       {/* {errors?.firstName && <p>{errors?.firstName?.message || "Error!"}</p>} */}
                 </label>
-                <label>Ваше фамилия
-                  <input 
+                <label  className={errors.secondName ? 'label__error'  : 'label__isvalid'}>Ваше фамилия
+                  <input
+                      className={errors.secondName ? 'input__error' : 'input__isvalid'} 
                       type='text' 
                       placeholder='Например Иванов'
                       {...register('secondName', {
-                        required:"Поле обязательно к заполнению",
+                        required:true,
                       }) }
                       />
                 </label>
-                <label>Электронная почта 
+                <label className={errors.email ? 'label__error'  : 'label__isvalid'}>Электронная почта 
                   <input 
+                      className={errors.email ? 'input__error' : 'input__isvalid'} 
                       type='email' 
                       placeholder='example@mail.com'
                       {...register('email', {
-                        required:"Поле обязательно к заполнению",
+                        required:true,
                       }) }
                       />
                 </label>
-                <label>Ваш номер телефона
+                <label className={errors.phoneInput ? 'label__error'  : 'label__isvalid'}>Ваш номер телефона
+                <PhoneInputWithCountry
+                    className={errors.phoneInput ? 'input__error' : 'input__isvalid'} 
+                    name="phoneInput"
+                    control={control}
+                    rules={{ required: true }}
+                />
+                  
+                </label>
+                <label  className={errors.country ? 'label__error'  : 'label__isvalid'}>Страна
                   <input 
-                  type='text' 
-                  inputmode='numeric'
-                  autoComplete='cc-number'
-                  placeholder='Введите номер телефона'
-                  {...register('phone', {
-                    required:"Поле обязательно к заполнению",
-                    pattern: /[0-9]{7}/,
-                  }) }
+                    className={errors.country ? 'input__error' : 'input__isvalid'} 
+                    type='text' 
+                    placeholder='Введите страну'
+                    {...register('country', {
+                      required:true,
+                    }) }
                   />
                 </label>
-                <label>Страна
+                <label className={errors.city ? 'label__error'  : 'label__isvalid'}>Город
                   <input 
-                  type='text' 
-                  placeholder='Введите страну'
-                  {...register('country', {
-                    required:"Поле обязательно к заполнению",
-                  }) }
-                  />
-                </label>
-                <label>Город
-                  <input 
+                  className={errors.city ? 'input__error' : 'input__isvalid'} 
                   type='text' 
                   placeholder='Введите город'
                   {...register('city', {
-                    required:"Поле обязательно к заполнению",
+                    required:true,
                   }) }
                   />
                 </label>
                 <div className='ordering-model-check'>
-                <input  type='checkbox' className='ordering-model-checkbox'/><span>Согласен с условиями <a href=''>публичной оферты</a></span>
+                    <input  type='checkbox' className='ordering-model-checkbox'
+                      {...register('check', {
+                        required:true,
+                      }) }
+                    />
+                    <span>Согласен с условиями <Link to='/offer' style={{textDecoration:'none'}}>публичной оферты</Link>
+                    </span>
                 </div>
-                <button className='ordering-modal-btn' type='submit' disable={!isValid} onClick={(e)=>handleOrdering(e)}>Заказать</button>
+                
+                <button 
+                    className={isValid ? 'btn__isValid ordering-modal-btn' : 'btn__notValid ordering-modal-btn'}
+                    type='submit' 
+                    // onClick={(e)=>handleOrdering(e)}
+                >
+                    Заказать
+                </button>
              </form>
           </Modal.Body>
         </Modal>

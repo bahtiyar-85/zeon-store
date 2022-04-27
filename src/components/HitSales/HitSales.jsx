@@ -7,35 +7,29 @@ import axios from 'axios';
 
 const HitSales = () => {
     const [product, setProduct] = useState([]);
-    const [randomProduct, setRandomProduct] = useState([]);
-   
+    const [page, setPage] = useState(1);
+    
     async function getProduct(){
         try {
-            let result = await axios.get(`${PRODUCTS_API}`)
-
+            let result = await axios.get(`${PRODUCTS_API}?page=${page}&limit=8`)
             setProduct(result.data);
-            getNewArray();
         } catch (error) {
             console.error(error)
         }
     }
-    function getNewArray(){
-        const length = product.length;
-        const newArray = [];
-        for(let i=0; i<8; i++){
-            let randomIndex = Math.floor(Math.random() * length);
-            newArray.push(product[randomIndex]);
-        }
-        setRandomProduct(newArray);
-    } 
 
+    function handleClick(){
+        if(product.length!==8) setPage(1);
+        else setPage(prev => prev + 1);
+    }
     useEffect(()=>{
         getProduct();
     },[])
 
     useEffect(()=>{
-        getNewArray();
-    },[product]);
+        getProduct();
+    },[page])
+    
 
     return (
         <div className='hit-sales flex-column align-items-center mt-5'>
@@ -64,7 +58,7 @@ const HitSales = () => {
                       }}
                     spaceBetween={10}
                 >
-                    {randomProduct?.slice(0,4).map((item, index)=>(
+                    {product?.slice(0,4).map((item, index)=>(
                         <SwiperSlide key={index} >
                             <ProductItem {...item} />
                         </SwiperSlide>
@@ -91,7 +85,7 @@ const HitSales = () => {
                       }}
                     spaceBetween={10}
                 >
-                    {randomProduct?.slice(4).map((item, index)=>(
+                    {product?.slice(4).map((item, index)=>(
                         <SwiperSlide key={index}>
                             <ProductItem {...item} />
                         </SwiperSlide>
@@ -99,7 +93,7 @@ const HitSales = () => {
                 </Swiper>
             </div>
             <div className='d-flex justify-content-center'>
-                <MoreButton handleClick={getNewArray}/>
+                <MoreButton handleClick={handleClick}/>
             </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useEffect, useState } from 'react';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
 import Pagination from '../../components/Pagination/Pagination';
@@ -56,11 +57,61 @@ const SearchPage = ({searchValue}) => {
                 </>
             ) : (
                 <>
-                    <div className='d-flex flex-wrap'>
-                        {searchResult?.slice((page-1)*8, page*8).map((item, index)=>(
-                                <ProductItem {...item} key={index}/>
-                            ))}
-                       
+                    <div className=''>
+                        <Swiper
+                            breakpoints={{
+                                290: {
+                                width: 290,
+                                slidesPerView: 1,
+                                },
+                                574: {
+                                    width: 574,
+                                    slidesPerView: 2,
+                                },
+                                862: {
+                                    width: 862,
+                                    slidesPerView: 3,
+                                },
+                                1150: {
+                                    width: 1150,
+                                    slidesPerView: 4,
+                                },
+                            }}
+                            spaceBetween={10}
+                        >
+                            {searchResult?.slice((page-1)*8, page*8).slice(0,4).map((item, index)=>(
+                                    <SwiperSlide key={index}>
+                                        <ProductItem {...item} />
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>   
+                        <Swiper
+                            breakpoints={{
+                                290: {
+                                width: 290,
+                                slidesPerView: 1,
+                                },
+                                574: {
+                                    width: 574,
+                                    slidesPerView: 2,
+                                },
+                                862: {
+                                    width: 862,
+                                    slidesPerView: 3,
+                                },
+                                1150: {
+                                    width: 1150,
+                                    slidesPerView: 4,
+                                },
+                            }}
+                            spaceBetween={10}
+                        >
+                            {searchResult?.slice((page-1)*8, page*8).slice(4).map((item, index)=>(
+                                    <SwiperSlide key={index}>
+                                        <ProductItem {...item} />
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>   
                     </div>
                     {pages ? (
                         <div className='d-flex flex-row-reverse mb-5 mt-4'>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './HelpItem.css';
 import {IoIosArrowUp} from "react-icons/io";
 import {IoIosArrowDown} from "react-icons/io";
+import './HelpItem.css';
 
 const HelpItem = ({question, answer}) => {
     const [state, setState] = useState(false);

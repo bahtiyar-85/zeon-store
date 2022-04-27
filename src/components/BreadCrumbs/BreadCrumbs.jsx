@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './BreadCrumbs.css';
 import { COLLECTIONS_API, PRODUCTS_API } from '../../helpers/consts';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
+import './BreadCrumbs.css';
 
 
 const BreadCrumbs = () => {
@@ -52,6 +52,9 @@ const BreadCrumbs = () => {
             case 'search':
                 buffer.push(<span key={2}  className='crumbs-activ'>Результаты поиска</span>);
                 break; 
+            case 'offer':
+                buffer.push(<span key={2}  className='crumbs-activ'>Публичная оферта</span>);
+                break;     
             case 'favorite':
                 buffer.push(<span key={2}  className='crumbs-activ'>Избранное</span>);
                 break; 

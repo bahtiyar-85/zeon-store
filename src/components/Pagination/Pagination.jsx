@@ -1,6 +1,7 @@
 import React from 'react';
-import './Pagination.css';
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import './Pagination.css';
+
 const Pagination = ({pages, active, setActive}) => {
 
     function handleClick(num){

@@ -1,13 +1,12 @@
 import React from 'react';
-import './Footer.css'
 import logo from '../../images/logo2.png';
 import telegram from '../../images/icons/telegram.png';
 import instagram from '../../images/icons/instagram.png';
 import phone from '../../images/icons/phone.png';
 import email from '../../images/icons/email.png';
 import whatsup from '../../images/icons/whatsup.png';
-import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Footer.css'
 
 const Footer = () => {
     return (

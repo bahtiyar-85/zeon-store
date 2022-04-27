@@ -8,18 +8,28 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
-    color: #808080;
+    /* color: #808080; */
     margin-bottom: 10px;
 }
 .ordering-modal input {
     width: 100%;
     height: 44px;
     background: #FFFFFF;
-    border: 1px solid #E7E7E7;
+    /* border: 1px solid #E7E7E7; */
     box-sizing: border-box;
     padding: 12px;
-
-   
+}
+.label__error{
+    color: #E5271B; 
+}
+.label__isvalid{
+    color: #808080;
+}
+.input__error{
+    border: 1px solid #E5271B;
+}
+.input__isvalid {
+    border: 1px solid #E7E7E7 !important;  
 }
 .ordering-modal .modal-content {
     width: 440px;
@@ -45,12 +55,20 @@
     line-height: 17px;
     margin: 45px 0;
     color: #fff;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;
 }
 .ordering-model-check {
     display: flex;
     align-items: center;
     margin-top: 20px;
+}
+.PhoneInputInput {
+    border: 1px solid #E7E7E7 !important; 
+}
+.btn__isValid {
+    background: #1D1D1B;
+}
+.btn__notValid {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;
 }
 
 .ordering-modal input::-webkit-input-placeholder { color: #D0D0D0; }

@@ -1,0 +1,24 @@
+.help-img {
+    width: 50vw; 
+}
+.help-img img {
+    width: 100%;
+    height: auto;
+}
+.help-items {
+    width: 50vw;
+}
+@media (max-width:770px){
+    .help {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .help-img {
+        width: 100vw;
+        padding: 5vw;
+    }
+    .help-items {
+        width: 100vw;
+        padding: 5vw;
+    }
+}

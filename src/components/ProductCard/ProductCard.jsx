@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ProductColor from '../ProductColors/ProductColor';
-import './ProductCard.css';
+import { Swiper, SwiperSlide } from "swiper/react";
 import bag from '../../images/icons/bag-icon.png';
 import favor from '../../images/icons/favor-light.png';
 import { addItemToCart } from '../../store/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import './ProductCard.css';
 
 const ProductCard = ({color, ...props}) => {
     const dispatch = useDispatch();
@@ -31,12 +32,40 @@ const ProductCard = ({color, ...props}) => {
 
     return (
         <div className='card'>
+              <Swiper
+                    className='card-images-swiper'
+                    breakpoints={{
+                        290: {
+                          width: 290,
+                          slidesPerView: 1,
+                        },
+                        574: {
+                            width: 574,
+                            slidesPerView: 2,
+                        },
+                        862: {
+                            width: 862,
+                            slidesPerView: 3,
+                        },
+                        1150: {
+                            width: 1150,
+                            slidesPerView: 4,
+                        },
+                      }}
+                    spaceBetween={10}
+                >
+                     {props?.images?.map((item, index)=> (
+                         <SwiperSlide key={index}>
+                            <img src={item}  className='card-img'/>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             <div className='card-images'>
-                <div>
-                    {/* <img src={props.mainimage} alt='Фото' className='card-img'/> */}
+                <div className='card-images-images'>    
                     {props?.images?.map((item, index)=> (
                         <img src={item} key={index} className={index<4 ? 'card-img' : 'card-img__mini'}/>
                     ))}
+              
                 </div>
             </div>
             <div className='card-items'>
@@ -73,6 +102,7 @@ const ProductCard = ({color, ...props}) => {
                     <button className='card-btn__favor'><img src={favor} alt=""/></button>
                 </div> 
             </div>
+
         </div>
     );
 };

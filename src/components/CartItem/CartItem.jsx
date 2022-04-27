@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import "./CartItem.css";
 import { useDispatch } from 'react-redux';
 import cross from '../../images/icons/cross.png'
 import { deleteItemFromCart } from '../../store/cartSlice';
+import "./CartItem.css";
 
 const CartItem = ({setTotalPrice, setTotalSale, setTotalOrder, ...props}) => {
     const [count, setCount] = useState(1);

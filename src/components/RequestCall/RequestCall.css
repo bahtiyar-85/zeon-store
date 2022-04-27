@@ -31,10 +31,37 @@
     box-sizing: border-box;
     border-radius: 3px;
     margin-bottom: 8px;
+    padding-left: 37px;
 }
-.modal-request__btn {
+.modal-request__isValid {
     height: 44px;
     width: 360px;
     background: #1D1D1B; 
     color:#fff;
+}
+.modal-request__notValid {
+    height: 44px;
+    width: 360px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;
+    color:#fff;
+}
+.modal-request .input__name {
+    position: relative;
+}
+.modal-request .input__phone {
+    position: relative;
+}
+.modal-request .image__name {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    width: 30px;
+    height: 30px;
+}
+.modal-request .image__phone {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    width: 30px;
+    height: 30px;
 }

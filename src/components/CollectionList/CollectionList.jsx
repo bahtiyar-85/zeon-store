@@ -7,34 +7,29 @@ import axios from 'axios';
 
 const CollectionList = () => {
     const [collection, setCollection] = useState([]);
-    const [newCol, setNewCol] = useState([]);
+   const [page, setPage] = useState(1);
 
     async function getCollection(){
         try {
-            let result = await axios.get(`${COLLECTIONS_API}`)
+            let result = await axios.get(`${COLLECTIONS_API}?page=${page}&limit=4`)
             setCollection(result.data);
         } catch (error) {
             console.error(error)
         } 
     }
 
-    function getNewArray(){
-        const length = collection.length;
-        const newArray = [];
-        for(let i=0; i<4; i++){
-            let randomIndex = Math.floor(Math.random() * length);
-            newArray.push(collection[randomIndex]);
-        }
-        setNewCol(newArray);
-    } 
+    function handleClick(){
+        if(collection.length!==4) setPage(1);
+        else setPage(prev => prev + 1);
+    }
 
     useEffect(()=>{
         getCollection();
     },[])
 
     useEffect(()=>{
-        getNewArray()
-    },[collection])
+        getCollection();
+    },[page])
 
     return (
         <div className='mt-5'>
@@ -62,14 +57,14 @@ const CollectionList = () => {
                       }}
                     spaceBetween={10}
                 >
-                {newCol?.map((item, index)=>(
+                {collection?.map((item, index)=>(
                     <SwiperSlide key={index}>
                         <CollectionItem {...item} />
                     </SwiperSlide>
                 ))}
             </Swiper>
             <div className='mt-4 d-flex justify-content-center'>
-                <MoreButton handleClick={getNewArray}/>
+                <MoreButton handleClick={handleClick}/>
             </div>
         </div>
     );

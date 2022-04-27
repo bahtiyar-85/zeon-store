@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import NewsItem from '../../components/NewsItem/NewsItem';
-import './News.css';
-import image from '../../images/Rectangle2.png'
-import { Container } from 'react-bootstrap';
 import { NEWS_API } from '../../helpers/consts';
 import axios from 'axios';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
+import './News.css';
 
 const News = () => {
   
@@ -29,13 +27,11 @@ const News = () => {
     const handlerScroll = (e) => {
         if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)<100){
             setFetching(true);
-            console.log('scrollH');
         }
 
     }
     useEffect(()=>{
         if(fetching && !finished){
-            console.log('fetching');
             getNews();
         }  
     },[fetching]);

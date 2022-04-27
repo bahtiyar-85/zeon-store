@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './FloatingButton.css';
 import chat from '../../images/icons/chat.png';
 import arrow from '../../images/icons/arrow.png';
 import cross from '../../images/icons/cross.png';
@@ -8,6 +7,7 @@ import telegram from '../../images/icons/telegram2.png';
 import phone from '../../images/icons/telephone2.png';
 import RequestCall from '../RequestCall/RequestCall';
 import ThankModal from '../ThankModal/ThankModal';
+import './FloatingButton.css';
 
 const FloatingButton = () => {
 

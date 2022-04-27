@@ -8,34 +8,29 @@ import './Novelties.css'
 
 const Novelties = () => {
     const [product, setProduct] = useState([]);
-    const [randomProduct, setRandomProduct] = useState([]);
+    const [page, setPage] = useState(3);
    
     async function getProduct(){
         try {
-            let result = await axios.get(`${PRODUCTS_API}`)
+            let result = await axios.get(`${PRODUCTS_API}?page=${page}&limit=4`)
             setProduct(result.data);
         } catch (error) {
             console.error(error)
         }
         
     }
+    function handleClick(){
+        if(product.length!==4) setPage(1);
+        else setPage(prev => prev + 1);
+    }
 
-    function getNewArray(){
-        const length = product.length;
-        const newArray = [];
-        for(let i=0; i<4; i++){
-            let randomIndex = Math.floor(Math.random() * length);
-            newArray.push(product[randomIndex]);
-        }
-        setRandomProduct(newArray);
-    } 
     useEffect(()=>{
         getProduct();
     },[]);
 
     useEffect(()=>{
-        getNewArray();
-    },[product]);
+        getProduct();
+    },[page]);
 
     return (
         <div className='novelties mt-5'>
@@ -63,7 +58,7 @@ const Novelties = () => {
                       }}
                     spaceBetween={10}
                 >
-                    {randomProduct?.map((item, index)=>(
+                    {product?.map((item, index)=>(
                         <SwiperSlide key={index}>
                             <ProductItem {...item} />
                         </SwiperSlide>
@@ -71,7 +66,7 @@ const Novelties = () => {
                 
             </Swiper>
             <div className='d-flex justify-content-center'>
-                <MoreButton handleClick={getNewArray}/>
+                <MoreButton handleClick={handleClick}/>
             </div>
         </div>
     );

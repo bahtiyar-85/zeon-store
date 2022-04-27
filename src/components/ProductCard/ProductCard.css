@@ -7,6 +7,9 @@
 .card-images {
     
 }
+.card-images-swiper {
+    display: none;
+}
 .card-items {
     width: 520px;
     /* height: 434px; */
@@ -82,4 +85,28 @@
     width: 150px;
     height: 240px;
     margin: 0 2px;
+}
+@media (max-width: 1200px) {
+    .card-images-images {
+        display: none;
+    }
+    .card-images-swiper {
+        display: block;
+    }
+    .card-images {
+        width: 100vw;
+    }
+    .card {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card-img {
+        width: 286px;
+        height: auto;
+    }
+}
+@media (max-width: 505px) {
+    .card-btn__add {
+        width: 100%;
+    }
 }

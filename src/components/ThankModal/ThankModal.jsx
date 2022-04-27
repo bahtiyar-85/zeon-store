@@ -1,8 +1,8 @@
 import React from 'react';
-import './ThankModal.css';
 import icon from '../../images/icons/icon5.png';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import './ThankModal.css';
 
 
 

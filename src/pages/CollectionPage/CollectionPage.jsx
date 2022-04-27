@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from '../../components/Pagination/Pagination';
-import './CollectionPage.css';
+import { Swiper, SwiperSlide } from "swiper/react";
 import { PRODUCTS_API, COLLECTIONS_API } from '../../helpers/consts';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
+import './CollectionPage.css';
 
 const CollectionPage = () => {
     const [product, setProduct] = useState([]);
@@ -14,7 +15,7 @@ const CollectionPage = () => {
     const {id} = useParams();
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState(1);
-    const limit = 4;
+    const limit = 8;
 
     async function getCollection(){
         try {
@@ -49,14 +50,67 @@ const CollectionPage = () => {
     return (
         <div className='container'>
             <div>
-                <h2 className='title'>{collection.title}</h2>
-                <div className='w-100 d-flex flex-wrap'>
-                    {product?.map((item, index)=>(
-                        <ProductItem {...item} key={index}/>
-                    ))} 
+                <div className='d-flex justify-content-center'>
+                    <h2 className='title'>{collection.title}</h2>
                 </div>
+                <Swiper
+                    breakpoints={{
+                        290: {
+                          width: 290,
+                          slidesPerView: 1,
+                        },
+                        574: {
+                            width: 574,
+                            slidesPerView: 2,
+                        },
+                        862: {
+                            width: 862,
+                            slidesPerView: 3,
+                        },
+                        1150: {
+                            width: 1150,
+                            slidesPerView: 4,
+                        },
+                      }}
+                    spaceBetween={10}
+                >
+                    
+                    {product?.slice(0,4).map((item, index)=>(
+                        <SwiperSlide key={index}>
+                            <ProductItem {...item} />
+                        </SwiperSlide>
+                    ))} 
+                </Swiper>
+                <Swiper
+                    breakpoints={{
+                        290: {
+                          width: 290,
+                          slidesPerView: 1,
+                        },
+                        574: {
+                            width: 574,
+                            slidesPerView: 2,
+                        },
+                        862: {
+                            width: 862,
+                            slidesPerView: 3,
+                        },
+                        1150: {
+                            width: 1150,
+                            slidesPerView: 4,
+                        },
+                      }}
+                    spaceBetween={10}
+                >
+                    
+                    {product?.slice(4).map((item, index)=>(
+                        <SwiperSlide key={index}>
+                            <ProductItem {...item} />
+                        </SwiperSlide>
+                    ))} 
+                </Swiper>
                 <div>
-                    {/* <Pagination pages={pages} active={page} setActive={setPage}/> */}
+                    <Pagination pages={pages} active={page} setActive={setPage}/>
                 </div>
             </div> 
             <SimilarProducts title={'Новинки'}/>

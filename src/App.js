@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import CartPage from './pages/CartPage/CartPage';
 import FavoritePage from './pages/FavoritePage/FavoritePage';
+import OfferPage from './pages/OfferPage/OfferPage';
 import 'swiper/css';
 import './App.css';
 
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/search" element={<SearchPage searchValue={searchValue} />} /> 
             <Route path="/cart" element={<CartPage/>} />
             <Route path="/favorite" element={<FavoritePage/>} />
+            <Route path="/offer" element={<OfferPage/>} /> 
           </Routes>
         <Footer/>
       </BrowserRouter>
