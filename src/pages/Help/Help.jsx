@@ -33,18 +33,19 @@ const Help = () => {
     },[])
 
     return (
-
-       <div className='container'>
-            <div className='help d-flex'>
-                <div className='help-img'>
-                    <img src={image.helpimage} alt=''/>
-                </div>
-                <div className='help-items'>
-                    <h2 className='title ps-3'>Помощь</h2>
-                    {array.map((item, index) =>(
-                        <HelpItem question={item.qustion} answer={item.answer} key={index}/>
-                    ))}
-                   
+        <div className='help__bg'>
+            <div className='container pt-2 pb-2'>
+                <div className='help d-flex'>
+                    <div className='help-img'>
+                        <img src={image.helpimage} alt=''/>
+                    </div>
+                    <div className='help-items'>
+                        <h2 className='title ps-3'>Помощь</h2>
+                        {array.map((item, index) =>(
+                            <HelpItem question={item.qustion} answer={item.answer} key={index}/>
+                        ))}
+                    
+                    </div>
                 </div>
             </div>
         </div>

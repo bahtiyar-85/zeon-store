@@ -3,6 +3,8 @@
     padding: 12px;
     height: 162px;
     position: relative;
+    background-color: #fff;
+    
 }
 .cart-item-items {
     width: 260px;

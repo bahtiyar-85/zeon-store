@@ -1,6 +1,9 @@
 .help-img {
     width: 50vw; 
 }
+.help__bg {
+    background-color: #f7f3f3;
+}
 .help-img img {
     width: 100%;
     height: auto;

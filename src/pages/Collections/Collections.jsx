@@ -33,70 +33,72 @@ const Collections = () => {
 
 
     return (
-        <div className='container col-height'>
-                <div className='d-flex justify-content-center'>
-                    <h2 className='title'>Коллекция</h2>
-                </div>
-                <div className=' collections__height'>
-                <Swiper
-                    breakpoints={{
-                        290: {
-                          width: 290,
-                          slidesPerView: 1,
-                        },
-                        574: {
-                            width: 574,
-                            slidesPerView: 2,
-                        },
-                        862: {
-                            width: 862,
-                            slidesPerView: 3,
-                        },
-                        1150: {
-                            width: 1150,
-                            slidesPerView: 4,
-                        },
-                      }}
-                    spaceBetween={10}
-                >
-                        {collections?.slice(0,4).map((item, index)=>(
-                            <SwiperSlide key={index}>
-                                <CollectionItem {...item} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+        <div className='collection-bg'>
+            <div className='container'>
+                    <div className='d-flex justify-content-center'>
+                        <h2 className='title'>Коллекция</h2>
+                    </div>
+                    <div className=' collections__height'>
                     <Swiper
-                    breakpoints={{
-                        290: {
-                          width: 290,
-                          slidesPerView: 1,
-                        },
-                        574: {
-                            width: 574,
-                            slidesPerView: 2,
-                        },
-                        862: {
-                            width: 862,
-                            slidesPerView: 3,
-                        },
-                        1150: {
-                            width: 1150,
-                            slidesPerView: 4,
-                        },
-                      }}
-                    spaceBetween={10}
-                >
-                        {collections?.slice(4).map((item, index)=>(
-                            <SwiperSlide key={index}>
-                                <CollectionItem {...item} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-                <div className='d-flex flex-row-reverse mb-5 mt-4'>
-                    <Pagination pages={pages} active={page} setActive={setPage}/>
-                </div>
-                <FloatingButton/>
+                        breakpoints={{
+                            290: {
+                            width: 290,
+                            slidesPerView: 1,
+                            },
+                            574: {
+                                width: 574,
+                                slidesPerView: 2,
+                            },
+                            862: {
+                                width: 862,
+                                slidesPerView: 3,
+                            },
+                            1150: {
+                                width: 1150,
+                                slidesPerView: 4,
+                            },
+                        }}
+                        spaceBetween={10}
+                    >
+                            {collections?.slice(0,4).map((item, index)=>(
+                                <SwiperSlide key={index}>
+                                    <CollectionItem {...item} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        <Swiper
+                        breakpoints={{
+                            290: {
+                            width: 290,
+                            slidesPerView: 1,
+                            },
+                            574: {
+                                width: 574,
+                                slidesPerView: 2,
+                            },
+                            862: {
+                                width: 862,
+                                slidesPerView: 3,
+                            },
+                            1150: {
+                                width: 1150,
+                                slidesPerView: 4,
+                            },
+                        }}
+                        spaceBetween={10}
+                    >
+                            {collections?.slice(4).map((item, index)=>(
+                                <SwiperSlide key={index}>
+                                    <CollectionItem {...item} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                    <div className='d-flex flex-row-reverse pb-5 mt-4'>
+                        <Pagination pages={pages} active={page} setActive={setPage}/>
+                    </div>
+                    <FloatingButton/>
+            </div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 .collections__height {
     height: 750px;
 }
-/* .col-height {
-    height: 850;
-} */
+.collection-bg {
+    background-color: #f7f3f3;  
+}
+

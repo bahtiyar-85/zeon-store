@@ -43,15 +43,16 @@ const News = () => {
         }
     },[])
     return (
-        <div className='container'>
-           
-                <h2 className='title'>Новости</h2>
-                <div >
-                    {news.map((item, index) => (
-                        <NewsItem image={item.image} title={item.title} text={item.content} key={index}/>
-                    ))}
-                </div >
-            <FloatingButton/>
+        <div className='news-page__bg'>
+            <div className='container'>
+                    <h2 className='title'>Новости</h2>
+                    <div >
+                        {news.map((item, index) => (
+                            <NewsItem image={item.image} title={item.title} text={item.content} key={index}/>
+                        ))}
+                    </div >
+                <FloatingButton/>
+            </div>
         </div>
     );
 };

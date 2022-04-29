@@ -1,6 +1,7 @@
 .our-advantages {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 40px;
 }
 @media (max-width:1000px) {
     .our-advantages {

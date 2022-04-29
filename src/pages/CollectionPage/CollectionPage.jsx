@@ -48,73 +48,75 @@ const CollectionPage = () => {
     },[product]);
 
     return (
-        <div className='container'>
-            <div>
-                <div className='d-flex justify-content-center'>
-                    <h2 className='title'>{collection.title}</h2>
-                </div>
-                <Swiper
-                    breakpoints={{
-                        290: {
-                          width: 290,
-                          slidesPerView: 1,
-                        },
-                        574: {
-                            width: 574,
-                            slidesPerView: 2,
-                        },
-                        862: {
-                            width: 862,
-                            slidesPerView: 3,
-                        },
-                        1150: {
-                            width: 1150,
-                            slidesPerView: 4,
-                        },
-                      }}
-                    spaceBetween={10}
-                >
-                    
-                    {product?.slice(0,4).map((item, index)=>(
-                        <SwiperSlide key={index}>
-                            <ProductItem {...item} />
-                        </SwiperSlide>
-                    ))} 
-                </Swiper>
-                <Swiper
-                    breakpoints={{
-                        290: {
-                          width: 290,
-                          slidesPerView: 1,
-                        },
-                        574: {
-                            width: 574,
-                            slidesPerView: 2,
-                        },
-                        862: {
-                            width: 862,
-                            slidesPerView: 3,
-                        },
-                        1150: {
-                            width: 1150,
-                            slidesPerView: 4,
-                        },
-                      }}
-                    spaceBetween={10}
-                >
-                    
-                    {product?.slice(4).map((item, index)=>(
-                        <SwiperSlide key={index}>
-                            <ProductItem {...item} />
-                        </SwiperSlide>
-                    ))} 
-                </Swiper>
-                <div>
-                    <Pagination pages={pages} active={page} setActive={setPage}/>
-                </div>
-            </div> 
-            <SimilarProducts title={'Новинки'}/>
-            <FloatingButton/>
+        <div className='collection-page__bg'>
+            <div className='container'>
+                <div >
+                    <div className='d-flex justify-content-center'>
+                        <h2 className='title'>{collection.title}</h2>
+                    </div>
+                    <Swiper
+                        breakpoints={{
+                            290: {
+                            width: 290,
+                            slidesPerView: 1,
+                            },
+                            574: {
+                                width: 574,
+                                slidesPerView: 2,
+                            },
+                            862: {
+                                width: 862,
+                                slidesPerView: 3,
+                            },
+                            1150: {
+                                width: 1150,
+                                slidesPerView: 4,
+                            },
+                        }}
+                        spaceBetween={10}
+                    >
+                        
+                        {product?.slice(0,4).map((item, index)=>(
+                            <SwiperSlide key={index}>
+                                <ProductItem {...item} />
+                            </SwiperSlide>
+                        ))} 
+                    </Swiper>
+                    <Swiper
+                        breakpoints={{
+                            290: {
+                            width: 290,
+                            slidesPerView: 1,
+                            },
+                            574: {
+                                width: 574,
+                                slidesPerView: 2,
+                            },
+                            862: {
+                                width: 862,
+                                slidesPerView: 3,
+                            },
+                            1150: {
+                                width: 1150,
+                                slidesPerView: 4,
+                            },
+                        }}
+                        spaceBetween={10}
+                    >
+                        
+                        {product?.slice(4).map((item, index)=>(
+                            <SwiperSlide key={index}>
+                                <ProductItem {...item} />
+                            </SwiperSlide>
+                        ))} 
+                    </Swiper>
+                    <div>
+                        <Pagination pages={pages} active={page} setActive={setPage}/>
+                    </div>
+                </div> 
+                <SimilarProducts title={'Новинки'}/>
+                <FloatingButton/>
+            </div>
         </div>
     );
 };

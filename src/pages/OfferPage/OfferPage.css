@@ -4,6 +4,12 @@
     font-size: 14px;
     line-height: 165%;
     color: #5B5B5B;
-    padding: 0 16px;
     margin-bottom: 5px;
+}
+.offer__bg {
+    background-color: #f7f3f3;
+}
+.offer-content {
+    background-color: #fff;
+    padding: 16px;
 }
