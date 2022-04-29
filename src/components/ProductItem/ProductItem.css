@@ -1,5 +1,6 @@
 .product {
-    padding: 3px;
+    /* padding: 3px; */
+    background-color: #fff;
 }
 .product-image {
     width: 286px;
