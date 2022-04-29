@@ -5,6 +5,7 @@ import HitSales from '../../components/HitSales/HitSales';
 import MainCarousel from '../../components/MainCarousel/MainCarousel';
 import Novelties from '../../components/Novelties/Novelties';
 import OurAdvantages from '../../components/OurAdvantages/OurAdvantages';
+import './Main.css';
 
 const Main = () => {
     
