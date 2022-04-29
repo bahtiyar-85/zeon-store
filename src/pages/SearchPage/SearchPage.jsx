@@ -48,80 +48,82 @@ const SearchPage = ({searchValue}) => {
 
 
     return (
-        <div className='container search-page'>
-             <h2 className='title'>Результаты поиска по запросу: {searchValue}</h2>
-            {emptyQuery ? (
-                <>
-                    <h3>По Вашему запросу ничего не найдено.</h3>
-                    <SimilarProducts title={'Возможно Вас заинтересует'}/>
-                </>
-            ) : (
-                <>
-                    <div className=''>
-                        <Swiper
-                            breakpoints={{
-                                290: {
-                                width: 290,
-                                slidesPerView: 1,
-                                },
-                                574: {
-                                    width: 574,
-                                    slidesPerView: 2,
-                                },
-                                862: {
-                                    width: 862,
-                                    slidesPerView: 3,
-                                },
-                                1150: {
-                                    width: 1150,
-                                    slidesPerView: 4,
-                                },
-                            }}
-                            spaceBetween={10}
-                        >
-                            {searchResult?.slice((page-1)*8, page*8).slice(0,4).map((item, index)=>(
-                                    <SwiperSlide key={index}>
-                                        <ProductItem {...item} />
-                                    </SwiperSlide>
-                                ))}
-                        </Swiper>   
-                        <Swiper
-                            breakpoints={{
-                                290: {
-                                width: 290,
-                                slidesPerView: 1,
-                                },
-                                574: {
-                                    width: 574,
-                                    slidesPerView: 2,
-                                },
-                                862: {
-                                    width: 862,
-                                    slidesPerView: 3,
-                                },
-                                1150: {
-                                    width: 1150,
-                                    slidesPerView: 4,
-                                },
-                            }}
-                            spaceBetween={10}
-                        >
-                            {searchResult?.slice((page-1)*8, page*8).slice(4).map((item, index)=>(
-                                    <SwiperSlide key={index}>
-                                        <ProductItem {...item} />
-                                    </SwiperSlide>
-                                ))}
-                        </Swiper>   
-                    </div>
-                    {pages ? (
-                        <div className='d-flex flex-row-reverse mb-5 mt-4'>
-                            <Pagination pages={pages} active={page} setActive={setPage}/>
+        <div className='search-page__bg'>
+            <div className='container search-page pt-3'>
+                <h2 className='title'>Результаты поиска по запросу: {searchValue}</h2>
+                {emptyQuery ? (
+                    <>
+                        <h3>По Вашему запросу ничего не найдено.</h3>
+                        <SimilarProducts title={'Возможно Вас заинтересует'}/>
+                    </>
+                ) : (
+                    <>
+                        <div className=''>
+                            <Swiper
+                                breakpoints={{
+                                    290: {
+                                    width: 290,
+                                    slidesPerView: 1,
+                                    },
+                                    574: {
+                                        width: 574,
+                                        slidesPerView: 2,
+                                    },
+                                    862: {
+                                        width: 862,
+                                        slidesPerView: 3,
+                                    },
+                                    1150: {
+                                        width: 1150,
+                                        slidesPerView: 4,
+                                    },
+                                }}
+                                spaceBetween={10}
+                            >
+                                {searchResult?.slice((page-1)*8, page*8).slice(0,4).map((item, index)=>(
+                                        <SwiperSlide key={index}>
+                                            <ProductItem {...item} />
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>   
+                            <Swiper
+                                breakpoints={{
+                                    290: {
+                                    width: 290,
+                                    slidesPerView: 1,
+                                    },
+                                    574: {
+                                        width: 574,
+                                        slidesPerView: 2,
+                                    },
+                                    862: {
+                                        width: 862,
+                                        slidesPerView: 3,
+                                    },
+                                    1150: {
+                                        width: 1150,
+                                        slidesPerView: 4,
+                                    },
+                                }}
+                                spaceBetween={10}
+                            >
+                                {searchResult?.slice((page-1)*8, page*8).slice(4).map((item, index)=>(
+                                        <SwiperSlide key={index}>
+                                            <ProductItem {...item} />
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>   
                         </div>
-                    ) : null}
-                </> 
+                        {pages ? (
+                            <div className='d-flex flex-row-reverse pb-5 mt-4'>
+                                <Pagination pages={pages} active={page} setActive={setPage}/>
+                            </div>
+                        ) : null}
+                    </> 
 
-            )} 
-            <FloatingButton/>
+                )} 
+                <FloatingButton/>
+            </div>
         </div>
     );
 };

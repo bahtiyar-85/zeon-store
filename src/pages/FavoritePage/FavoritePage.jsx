@@ -12,38 +12,40 @@ const FavoritePage = () => {
     const favor = useSelector(state=> state.favorite);
     console.log('favor', favor);
     return (
-        <div className='container'>
-            <h2 className='title'>Избранное</h2>
-            {!favor.prodFav.length && <SimilarProducts title={'Возможно Вас заинтересует'}/>}
-            <Swiper
-                spaceBetween={10}
-                allowTouchMove={true}
-                breakpoints={{
-                    290: {
-                      width: 290,
-                      slidesPerView: 1,
-                    },
-                    574: {
-                        width: 574,
-                        slidesPerView: 2,
-                    },
-                    862: {
-                        width: 862,
-                        slidesPerView: 3,
-                    },
-                    1150: {
-                        width: 1150,
-                        slidesPerView: 4,
-                    },
-                  }}
-            >
-                {favor.prodFav.map((item, index)=> (
-                    <SwiperSlide key={index} >
-                        <ProductItem {...item} />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-            <FloatingButton/>
+        <div className='favorite__bg'> 
+            <div className='container pt-3 pb-3'>
+                <h2 className='title '>Избранное</h2>
+                {!favor.prodFav.length && <SimilarProducts title={'Возможно Вас заинтересует'}/>}
+                <Swiper
+                    spaceBetween={10}
+                    allowTouchMove={true}
+                    breakpoints={{
+                        290: {
+                        width: 290,
+                        slidesPerView: 1,
+                        },
+                        574: {
+                            width: 574,
+                            slidesPerView: 2,
+                        },
+                        862: {
+                            width: 862,
+                            slidesPerView: 3,
+                        },
+                        1150: {
+                            width: 1150,
+                            slidesPerView: 4,
+                        },
+                    }}
+                >
+                    {favor.prodFav.map((item, index)=> (
+                        <SwiperSlide key={index} >
+                            <ProductItem {...item} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <FloatingButton/>
+            </div>
         </div>
     );
 };

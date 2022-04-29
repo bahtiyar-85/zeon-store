@@ -1,5 +1,6 @@
 .product {
-    /* padding: 3px; */
+    width: 286px;
+    margin: 3px;
     background-color: #fff;
 }
 .product-image {

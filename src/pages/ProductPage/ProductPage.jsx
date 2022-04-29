@@ -5,6 +5,7 @@ import { PRODUCTS_API } from '../../helpers/consts';
 import axios from 'axios';
 import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
+import './ProductPage.css';
 
 const ProductPage = () => {
     const location = useLocation();
@@ -30,13 +31,13 @@ const ProductPage = () => {
     },[location])
     
     return (
-        
+        <div className='product-page__bg'>
             <div className='container'>
                 <ProductCard {...product}/>
                 <SimilarProducts title={'Похожие товары'}/>
                 <FloatingButton/>
             </div>
-       
+        </div>    
     );
 };
 

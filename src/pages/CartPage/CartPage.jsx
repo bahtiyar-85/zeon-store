@@ -20,18 +20,20 @@ const CartPage = () => {
     const [showModal, setShowModal] = useState(false);
     const handleShowModal = () => setShowModal(true);
     return (
-        <div className='cart-page container'>
-            <div className='cart-page-list'>
-                {cart.itemInCart.map((item, index)=> (
-                    <CartItem key={index} setTotalOrder={setTotalOrder} setTotalPrice={setTotalPrice} setTotalSale={setTotalSale}  {...item}/>
-                ))}
+        <div className='cart-page__bg'>
+            <div className='cart-page container pt-3 '>
+                <div className='cart-page-list me-3'>
+                    {cart.itemInCart.map((item, index)=> (
+                        <CartItem key={index} setTotalOrder={setTotalOrder} setTotalPrice={setTotalPrice} setTotalSale={setTotalSale}  {...item}/>
+                    ))}
+                </div>
+                <div className="cart-page-order">
+                    <CartOrder totalPrice={totalPrice} totalOrder={totalOrder} totalSale={totalSale} handleShow={handleShow}/>
+                </div>
+                <OrderingModal show={show} setShow={setShow} handleShowModal={handleShowModal}/>
+                <ThankModal showModal={showModal} setShowModal={setShowModal}/>
+                <FloatingButton/>
             </div>
-            <div className="cart-page-order">
-                <CartOrder totalPrice={totalPrice} totalOrder={totalOrder} totalSale={totalSale} handleShow={handleShow}/>
-            </div>
-            <OrderingModal show={show} setShow={setShow} handleShowModal={handleShowModal}/>
-            <ThankModal showModal={showModal} setShowModal={setShowModal}/>
-            <FloatingButton/>
         </div>
     );
 };

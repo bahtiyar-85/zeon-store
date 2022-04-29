@@ -7,10 +7,10 @@ const NewsItem = ({image, title, text}) => {
     const subText = text.substring(0, 100) + '...';
     
     return (
-        <div className='m-3 news-item d-flex'>
+        <div className='p-2 news-item d-flex mb-2'>
             <div className='news-item-img '>
                 <img src={image} alt=''/>
-            </div>
+            </div> 
             <div className='news-item-items '>
                 <h3 className='news-item-items__title'>{title}</h3>
                 

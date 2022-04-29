@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     border: none;
+    background-color: #f7f3f3;
 }
 .card-images {
     
@@ -13,8 +14,12 @@
 .card-items {
     width: 520px;
     /* height: 434px; */
-    padding: 20px;
     
+    
+}
+.card-items__bg {
+    background-color: #fff;
+    padding: 20px;
 }
 .card-title {
     font-style: normal;

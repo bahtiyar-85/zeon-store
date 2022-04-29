@@ -20,11 +20,15 @@ const OfferPage = () => {
     },[])
 
     return (
-        <div className='container offer'>
-            <h2 className='title'> {offer.title}</h2>
-            {offer?.body?.map((item, index)=> (
-                <p key={index} >{item}</p>
-            ))}
+        <div className='offer__bg pt-2 pb-4'>
+            <div className='container offer'>
+                <h2 className='title'> {offer.title}</h2>
+                <div className='offer-content'>
+                    {offer?.body?.map((item, index)=> (
+                        <p key={index} >{item}</p>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };

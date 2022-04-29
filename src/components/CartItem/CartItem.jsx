@@ -38,7 +38,7 @@ const CartItem = ({setTotalPrice, setTotalSale, setTotalOrder, ...props}) => {
         setTotalOrder(priceCalc(props)*count);
     },[count])
     return (
-        <div className='cart-item'>
+        <div className='cart-item mb-2'>
             <div className='cart-item-items'>
                 <div className='cart-item-img'>
                     <img className='cart-item__image' src={props.mainimage} alt=''/>
