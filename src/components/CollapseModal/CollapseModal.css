@@ -23,12 +23,15 @@
     border-top: 1px solid #D3D3D3;
     padding-top: 5px;
 }
-@media (max-width: 576px){
-    .navbar-fav {
-        display: block;
-    }
-    .navbar-cart {
-        display: block;
-    }
-
+.collapse-modal-phone h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+.collapse-modal-phone .number {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
 }

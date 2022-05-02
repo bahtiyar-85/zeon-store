@@ -20,16 +20,16 @@ const CartOrder = ({totalSale, totalPrice, totalOrder, handleShow}) => {
                 <span className='cart-order__title'>Количество товаров:</span><span>{cart.itemInCart.length}шт</span>
             </div>
             <div className='cart-order-items'>
-                <span className='cart-order__title'>Стоимость:</span><span>{totalPrice+'  рублей'}</span>
+                <span className='cart-order__title'>Стоимость:</span><span>{totalPrice.toLocaleString('ru-RU')+'  рублей'}</span>
             </div>
             <div className='cart-order-items'>
-                <span className='cart-order__title'>Скидка:</span><span>{totalSale+'  рублей'}</span>
+                <span className='cart-order__title'>Скидка:</span><span>{totalSale.toLocaleString('ru-RU')+'  рублей'}</span>
             </div>
             <div className='cart-order-items cart-order__border'>
-                <span className='cart-order__title'>Итого к оплате:</span><span>{totalOrder+'  рублей'}</span>
+                <span className='cart-order__title'>Итого к оплате:</span><span>{totalOrder.toLocaleString('ru-RU')+'  рублей'}</span>
             </div>
             <div>
-               <button onClick={handleShow}>Оформить заказ</button>
+               <button onClick={handleShow} >Оформить заказ</button>
             </div>
         </div>
     );

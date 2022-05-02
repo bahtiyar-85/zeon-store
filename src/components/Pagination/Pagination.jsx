@@ -5,8 +5,8 @@ import './Pagination.css';
 const Pagination = ({pages, active, setActive}) => {
 
     function handleClick(num){
-        if(num<1) num = pages;
-        else if(num>pages) num = 1;
+        if(num<1) return;
+        else if(num>pages) return;
         setActive(num);
     }
 

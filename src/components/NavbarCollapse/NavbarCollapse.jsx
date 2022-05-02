@@ -36,7 +36,7 @@ const NavbarCollapse = ({setSearchValue}) => {
             <div className='navbar-collapsed-search' onClick={()=>setInputState(true)}> 
                 <img src={search} alt=''  />
                 <input type="text" 
-                    placeholder="Search..." 
+                    placeholder="Поиск..." 
                     value={state} 
                     className={inputState ? 'form-control collapse-input' : 'collapse-input__hide'}
                     onChange={(e)=> setState(e.target.value)}

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import 'react-phone-number-input/style.css'
 import PhoneInputWithCountry from 'react-phone-number-input/react-hook-form'
 import './OrderingModal.css';
+import { cleanCart } from '../../store/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const OrderingModal = ({show, setShow, handleShowModal}) => {
-    
+    const dispatch = useDispatch();
     const {
         register,
         control,
@@ -22,13 +23,14 @@ const OrderingModal = ({show, setShow, handleShowModal}) => {
     
    
     const onSubmit = (data) => {
-        alert(JSON.stringify(data));
+        // alert(JSON.stringify(data));
         reset();
         // e.preventDefault();
         handleClose();
         handleShowModal();  
+        dispatch(cleanCart());
     }
-    console.log('Phone', errors.phoneInput);
+   
     return (
       <>
   
@@ -99,12 +101,14 @@ const OrderingModal = ({show, setShow, handleShowModal}) => {
                   />
                 </label>
                 <div className='ordering-model-check'>
-                    <input  type='checkbox' className='ordering-model-checkbox'
+                    <input  type='checkbox' className='ordering-model-checkbox me-1'
                       {...register('check', {
                         required:true,
                       }) }
                     />
-                    <span>Согласен с условиями <Link to='/offer' style={{textDecoration:'none'}}>публичной оферты</Link>
+                    <span>Согласен с условиями 
+                        {/* <Link to='/offer' style={{textDecoration:'none'}}>публичной оферты</Link> */}
+                        <a href='/offer' target='_blank' className='ms-1' style={{textDecoration:'none'}}> публичной оферты</a>
                     </span>
                 </div>
                 

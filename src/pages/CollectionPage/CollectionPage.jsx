@@ -51,7 +51,7 @@ const CollectionPage = () => {
         <div className='collection-page__bg'>
             <div className='container'>
                 <div >
-                    <div className='d-flex justify-content-center'>
+                    <div className='d-flex justify-content-start pt-4'>
                         <h2 className='title'>{collection.title}</h2>
                     </div>
                     <Swiper
@@ -110,7 +110,7 @@ const CollectionPage = () => {
                             </SwiperSlide>
                         ))} 
                     </Swiper>
-                    <div>
+                    <div className='d-flex flex-row-reverse'>
                         <Pagination pages={pages} active={page} setActive={setPage}/>
                     </div>
                 </div> 

@@ -8,6 +8,7 @@ import './CartPage.css';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
 
 
+
 const CartPage = () => {
     const cart = useSelector((state) => state.cart);
     const [totalPrice, setTotalPrice] = useState(0);

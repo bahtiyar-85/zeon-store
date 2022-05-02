@@ -8,7 +8,7 @@ const ProductColor = ({color, setCurrentColor}) => {
          setCurrentColor(color)  
     }
     return (
-        <div className='d-flex align-items-center'>
+        <div className='d-flex align-items-center '>
             {color?.map((data, index) => {
                 return (
                     <div className={active!==index ? 'colors' : 'colors__active'} onClick={()=> handleClick(index, data)} key={index}>

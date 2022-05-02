@@ -8,7 +8,7 @@ import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
 import { PRODUCTS_API } from '../../helpers/consts';
 import './SearchPage.css';
 
-const SearchPage = ({searchValue}) => {
+const SearchPage = ({searchValue, setSearchDropdown}) => {
     const [searchResult, setSearchResult] = useState([]);
     const [pages, setPages] = useState(0);
     const [page, setPage] = useState(1);
@@ -22,7 +22,7 @@ const SearchPage = ({searchValue}) => {
                 setSearchResult(result.data);
                 setPages(Math.ceil(result.data.length/8));
                 setEmptyQuery(false);
-                
+                setSearchDropdown(prev => [searchValue, ...prev]);
             }   
             else {
                 setEmptyQuery(true);
@@ -30,20 +30,20 @@ const SearchPage = ({searchValue}) => {
             }
             
         } catch (error) {
-            console.error(error)
+            console.error('Ошибка',error)
+            setEmptyQuery(true);
         }
     }
-    useEffect(() => {
-        if(searchValue){
-            searchQuery();
-        }
-    },[]);
+    // useEffect(() => {
+    //     if(searchValue){
+    //         searchQuery();
+    //     }
+    // },[]);
 
     useEffect(() => {
         if(searchValue){
             searchQuery();
         }
-    
     },[searchValue]);
 
 

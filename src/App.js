@@ -15,17 +15,18 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import CartPage from './pages/CartPage/CartPage';
 import FavoritePage from './pages/FavoritePage/FavoritePage';
-import OfferPage from './pages/OfferPage/OfferPage';
 import 'swiper/css';
+import OfferPage from './pages/OfferPage/OfferPage';
 import './App.css';
 
 
 const App = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [searchDropdown, setSearchDropdown] = useState([]);
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header setSearchValue={setSearchValue} />
+        <Header setSearchValue={setSearchValue} searchDropdown={searchDropdown}/>
           <Routes>
             <Route path="/" element={<Main/>} /> 
             <Route path="/about-us" element={<AboutUs/>} /> 
@@ -34,7 +35,7 @@ const App = () => {
             <Route path="/help" element={<Help/>} /> 
             <Route path="/product/:id" element={<ProductPage/>} /> 
             <Route path="/collection/:id" element={<CollectionPage/>} /> 
-            <Route path="/search" element={<SearchPage searchValue={searchValue} />} /> 
+            <Route path="/search" element={<SearchPage searchValue={searchValue} setSearchDropdown={setSearchDropdown}/>} /> 
             <Route path="/cart" element={<CartPage/>} />
             <Route path="/favorite" element={<FavoritePage/>} />
             <Route path="/offer" element={<OfferPage/>} /> 

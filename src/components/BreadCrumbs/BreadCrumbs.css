@@ -22,3 +22,8 @@
     line-height: 17px;
     color: #979797;
 }
+@media (max-width:576px){
+    .breadcrumbs {
+        padding-left: 15px;
+    }
+}

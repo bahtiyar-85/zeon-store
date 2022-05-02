@@ -12,19 +12,19 @@ import './Navbar.css';
 
 
 
-const Navibar = ({ setSearchValue }) => {
+const Navibar = ({ setSearchValue, searchDropdown}) => {
     const [state, setState] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
     const cart = useSelector((state) => state.cart);
     const favorit = useSelector((state) => state.favorite);
-    const [searchDropdown, setSearchDropdown] = useState([]);
-
+    // const [searchDropdown, setSearchDropdown] = useState([]);
+   
     function handleClick() {
         if(state!==''){
             setSearchValue(state);
-            const array = searchDropdown.concat(state)
-            setSearchDropdown(array);
+            // const array = searchDropdown.concat(state)
+            // setSearchDropdown(array);
             setState('');
             if(location.pathname!=='/search') navigate('/search');
         } else {
@@ -55,7 +55,7 @@ const Navibar = ({ setSearchValue }) => {
             </NavbarBrand>
             <div className='navbar-search me-3'>
                 <input type="text" 
-                    placeholder="Search..." 
+                    placeholder="Поиск..." 
                     value={state} 
                     className="form-control"
                     onChange={(e)=> setState(e.target.value)}
@@ -65,7 +65,7 @@ const Navibar = ({ setSearchValue }) => {
                         }
                       }}
                 />
-                <img className='navbar-search-icon' src={search} onClick={()=> handleClick()}/>
+                <img className='navbar-search-icon' src={search} onClick={handleClick}/>
                 <div className='dropdown-list'>
                     {searchDropdown.length>3 ? (
                     <Scrollbars style={{width: '100%', height: 140}} >

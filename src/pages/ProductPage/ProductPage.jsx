@@ -12,7 +12,6 @@ const ProductPage = () => {
     const {id} = useParams();
     const [product, setProduct] = useState({});
     
-
     async function getProduct(id){
         try {
             let result = await axios.get(`${PRODUCTS_API}/${id}`)

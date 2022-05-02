@@ -35,8 +35,8 @@ const Collections = () => {
     return (
         <div className='collection-bg'>
             <div className='container'>
-                    <div className='d-flex justify-content-center'>
-                        <h2 className='title'>Коллекция</h2>
+                    <div className='d-flex justify-content-start pt-4'>
+                        <h2 className='title'>Коллекции</h2>
                     </div>
                     <div className=' collections__height'>
                     <Swiper

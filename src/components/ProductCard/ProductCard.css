@@ -5,18 +5,14 @@
     border: none;
     background-color: #f7f3f3;
 }
-.card-images {
-    
-}
+
 .card-images-swiper {
     display: none;
 }
 .card-items {
     width: 520px;
-    /* height: 434px; */
-    
-    
 }
+
 .card-items__bg {
     background-color: #fff;
     padding: 20px;

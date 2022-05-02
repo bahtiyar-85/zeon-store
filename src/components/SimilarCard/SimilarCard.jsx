@@ -30,7 +30,7 @@ const SimilarCard = (props) => {
                 <h5 className='product-title mt-1'>{props.title}</h5>
                
                 <span className='product-size'>Размер {props.size}</span><br/>
-                <ProductColor />
+                <ProductColor color={props.color}/>
             </div> 
         </div>
     );

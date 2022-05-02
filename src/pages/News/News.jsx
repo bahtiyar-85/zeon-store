@@ -43,7 +43,7 @@ const News = () => {
         }
     },[])
     return (
-        <div className='news-page__bg'>
+        <div className='news-page__bg pt-3'>
             <div className='container'>
                     <h2 className='title'>Новости</h2>
                     <div >

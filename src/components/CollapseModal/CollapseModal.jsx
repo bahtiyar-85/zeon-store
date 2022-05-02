@@ -31,7 +31,8 @@ const CollapseModal = ({show, setShow}) => {
                     <Link to='/favorite' style={{ textDecoration: 'none' }} className='modal-border'>
                         <span className='navbar-fav '>
                             <img className='icon-header' src={favorite} />
-                            <Badge>{favorit.prodFav.length}</Badge>Избранное
+                            <Badge>{favorit.prodFav.length}</Badge>
+                            Избранное
                         </span>
                     </Link>
                     
@@ -42,14 +43,15 @@ const CollapseModal = ({show, setShow}) => {
                                 {cart.itemInCart.length>0 ? cart.itemInCart.length : null}
                             </span> 
                             Корзина
+                           
                         </span>
                     </Link>
                    
                 </div>
                 <div className='collapse-modal-phone'>
-                        <span>Свяжитесь с нами:</span>
+                        <h5>Свяжитесь с нами:</h5>
                         <a href='tel:+996 000 00 00 00' style={{ textDecoration: 'none' }}>
-                            <span>Тел: +996 000 00 00 00</span>
+                           <span style={{color:'#979797'}}>Тел:</span><span className='number'>+996 000 00 00 00</span>
                         </a>
                     </div>
           </Modal.Body>

@@ -80,11 +80,11 @@ const ProductItem = ({color, ...props}) => {
                     </div>
                 </div>
             
-            <div className='m-2 product-items'>
+            <div className=' m-2 product-items'>
                 <h5 className='product-title'>{props.title}</h5>
-                <span className='product-price'>{priceCalc(props)}</span> <span className='product-price__old ms-3'>{props.sale ? props.price : null}</span>
+                <span className='product-price'>{priceCalc(props)+' p'}</span> <span className='product-price__old ms-3'>{props.sale ? props.price+' p' : null}</span>
                 <br/>
-                <span className='product-size mb-2'>{props.size}</span><br/>
+                <span className='product-size '> {'Размер: ' + props.size}</span><br/>
                 <ProductColor color={color} setCurrentColor={setCurrentColor}/>
             </div> 
         </div>

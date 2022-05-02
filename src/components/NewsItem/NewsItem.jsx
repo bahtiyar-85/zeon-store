@@ -4,7 +4,7 @@ import './NewsItem.css'
 const NewsItem = ({image, title, text}) => {
     const [state, setState] = useState(true);
     
-    const subText = text.substring(0, 100) + '...';
+    const subText = text.substring(0, 200) + '...';
     
     return (
         <div className='p-2 news-item d-flex mb-2'>

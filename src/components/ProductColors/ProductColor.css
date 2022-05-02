@@ -6,9 +6,9 @@
     border-radius: 4px;
 }
 .colors__active {
-    width: 15px;
-    height: 15px;
-    border: 1px dashed blue;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #D1D1D1;
     cursor: pointer;
     display: flex;
     margin-right: 8px;

@@ -168,4 +168,13 @@
         top: -3px;
         left: 12px; 
     }
+  
+    .navbar-fav {
+        display: inline;  
+     }
+    .navbar-cart {
+        display: inline;
+    }
+    
+    
 }
