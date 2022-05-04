@@ -71,10 +71,21 @@ const BreadCrumbs = () => {
                 buffer.push(<span key={2}  className='crumbs-activ'>Коллекции</span>);
                 break;
             case 'collection':
-                buffer.push(<span key={2} ><Link to='/collections'>Коллекции</Link><span className='crumbs-m'>/</span><span className='crumbs-activ'>{colTitle}</span></span>);
+                buffer.push(
+                     <span key={2} >
+                        <Link to='/collections'>Коллекции</Link>
+                        <span className='crumbs-m'>/</span>
+                        <span className='crumbs-activ'>{colTitle}</span>
+                    </span>);
                 break;
             case 'product':
-                buffer.push(<span key={2} ><Link to='/collections'>Коллекции</Link><span className='crumbs-m'>/</span><Link to={`/collection/${colId}`}>{colTitle}</Link><span className='crumbs-m'>/</span><span className='crumbs-activ'>{prodTitle}</span></span>);
+                buffer.push(
+                    <span key={2} >
+                        <Link to='/collections'>Коллекции</Link>
+                        <span className='crumbs-m'>/</span>
+                        <Link to={`/collection/${colId}`}>{colTitle}</Link>
+                        <span className='crumbs-m'>/</span><span className='crumbs-activ'>{prodTitle}</span>
+                    </span>);
                 break;
         }
         return buffer;

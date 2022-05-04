@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
 import MoreButton from '../MoreButton/MoreButton';
 import ProductItem from '../ProductItem/ProductItem';
+import MySwiper from '../MySwiper/MySwiper';
 import { PRODUCTS_API } from '../../helpers/consts';
 import axios from 'axios';
 import './Novelties.css'
 
 const Novelties = () => {
-    const [product, setProduct] = useState([]);
-    const [page, setPage] = useState(3);
+   
+    const [page, setPage] = useState(2);
+    const [buffer, setBuffer] = useState([]);
+    const [endQuery, setEndQuery] = useState(false);
    
     async function getProduct(){
         try {
             let result = await axios.get(`${PRODUCTS_API}?page=${page}&limit=4`)
-            setProduct(result.data);
+            setBuffer([...buffer, result.data]);
+            if(result.data.length!==4) setEndQuery(true);
         } catch (error) {
             console.error(error)
         }
         
     }
     function handleClick(){
-        if(product.length!==4) setPage(1);
-        else setPage(prev => prev + 1);
+        if(!endQuery) setPage(prev => prev + 1);
     }
 
     useEffect(()=>{
@@ -37,34 +39,10 @@ const Novelties = () => {
             <div className='d-flex justify-content-center'>
                 <h2 className='title '>Новинки</h2>
             </div>
-            <Swiper
-                    breakpoints={{
-                        290: {
-                          width: 290,
-                          slidesPerView: 1,
-                        },
-                        574: {
-                            width: 574,
-                            slidesPerView: 2,
-                        },
-                        862: {
-                            width: 862,
-                            slidesPerView: 3,
-                        },
-                        1150: {
-                            width: 1150,
-                            slidesPerView: 4,
-                        },
-                      }}
-                    spaceBetween={10}
-                >
-                    {product?.map((item, index)=>(
-                        <SwiperSlide key={index}>
-                            <ProductItem {...item} />
-                        </SwiperSlide>
-                        ))}
-                
-            </Swiper>
+                {buffer.map((item, index)=>{
+                        return (
+                        <MySwiper ProductItem={ProductItem} item={item} key={index}/>
+                )})}
             <div className='d-flex justify-content-center'>
                 <MoreButton handleClick={handleClick}/>
             </div>
