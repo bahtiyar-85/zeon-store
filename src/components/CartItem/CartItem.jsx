@@ -46,10 +46,10 @@ const CartItem = ({setTotalPrice, setTotalSale, setTotalOrder, ...props}) => {
                 </div>
                 <div className='cart-item-item'>
                     <div className='cart-item-title'>{props.title}</div>
-                    <div className='cart-item-value mt-3'><span className='me-2'>Размер</span><span>{props.size}</span></div>
-                    <div ><span className='cart-item-value'>Цвет</span><span className='item-color ms-2' style={{background: props.selectedColor}}>{'  '}</span> </div>
-                    <div><span className='cart-item__new-price'>{priceCalc(props)}</span><span className='cart-item__old-price ms-2'>{props.price}</span></div>
-                    <div className='cart-item-btn mt-3'><button onClick={()=> handleClick(count-1)}>-</button ><span>{count}</span><button  onClick={()=> handleClick(count+1)}>+</button></div>
+                    <div className='cart-item-value mt-2'><span className='me-2'>Размер</span><span>{props.size}</span></div>
+                    <div className='d-flex align-items-center mt-2'><span className='cart-item-value'>Цвет</span><span className='item-color ms-2' style={{background: props.selectedColor}}>{'  '}</span> </div>
+                    <div className='mt-2'><span className='cart-item__new-price'>{priceCalc(props)+' p '}</span><span className='cart-item__old-price ms-2'>{props.price+' p'}</span></div>
+                    <div className='cart-item-btn mt-2'><button onClick={()=> handleClick(count-1)}>-</button ><span>{count}</span><button  onClick={()=> handleClick(count+1)}>+</button></div>
                 </div>
             </div>
         </div>

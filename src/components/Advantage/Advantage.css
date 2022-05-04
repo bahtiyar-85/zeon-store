@@ -30,3 +30,8 @@
     text-align: center;
     margin: 15px 8px;
 }
+@media (max-width: 576px) {
+    .advantage-container {
+        margin-bottom: 10px;
+    }
+}

@@ -76,3 +76,8 @@
 .ordering-modal input:-moz-placeholder { color: #D0D0D0; }
 .ordering-modal input::-moz-placeholder { color: #D0D0D0; }
 .ordering-modal input:-ms-input-placeholder { color: #D0D0D0; }
+@media (max-width:576px){
+    .ordering-modal .modal-content {
+        width: 97vw;
+    }
+}

@@ -8,6 +8,7 @@ import { addItemToCart } from '../../store/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { checkFavor } from '../../store/favoriteSlice';
+import ImageModal from '../ImageModal/ImageModal';
 import './ProductCard.css';
 
 const ProductCard = ({color, ...props}) => {
@@ -17,6 +18,10 @@ const ProductCard = ({color, ...props}) => {
     console.log('render');
     const [currentColor, setCurrentColor] = useState('');
     const [cartButton, setCartButton] = useState(false);
+
+    const [showModal, setShowModal] = useState(false);
+    const handleShowModal = () => setShowModal(true);
+    const [currentImage, setCurrentImage] = useState(null);
     
     function priceCalc(price, sale){
       
@@ -49,7 +54,10 @@ const ProductCard = ({color, ...props}) => {
             navigate('/cart');
         }
     }
-
+    function handleImageClick(image){
+        setCurrentImage(image);
+        handleShowModal();
+    }
     useEffect(()=>{
         if(color) setCurrentColor(color[0]);
     },[color]);
@@ -87,7 +95,7 @@ const ProductCard = ({color, ...props}) => {
             <div className='card-images'>
                 <div className='card-images-images'>    
                     {props?.images?.map((item, index)=> (
-                        <img src={item} key={index} className={index<4 ? 'card-img' : 'card-img__mini'}/>
+                        <img src={item} key={index} className={index<4 ? 'card-img' : 'card-img__mini'} onClick={()=>handleImageClick(item)}/>
                     ))}
               
                 </div>
@@ -134,7 +142,7 @@ const ProductCard = ({color, ...props}) => {
                     </div> 
                 </div>
             </div>
-
+            <ImageModal showModal={showModal} setShowModal={setShowModal} currentImage={currentImage}/>
         </div>
     );
 };

@@ -62,3 +62,8 @@
         padding: 5vw;
     }
 }
+@media (max-width:576px) {
+    .news-item-img {
+        padding: 15px;
+    }
+}

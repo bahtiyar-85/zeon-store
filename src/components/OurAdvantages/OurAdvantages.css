@@ -16,5 +16,9 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-
+}
+@media (max-width:576px) {
+    .our-advantages {
+        padding-bottom: 20px;
+    }
 }

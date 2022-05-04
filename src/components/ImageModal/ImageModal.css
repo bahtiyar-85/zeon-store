@@ -1,0 +1,18 @@
+.image-modal .modal-content {
+    height: 90vh;
+    width: auto;
+    position: relative;
+}
+.image-modal .modal-body {
+    padding: 0;
+}
+.image-modal .image-modal-img{
+    width: 100%;
+    height: 100%;
+}
+.image-modal .image-modal-cross {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+}

@@ -1,3 +1,8 @@
 .collection-page__bg {
     background-color: #f7f3f3;
 } 
+@media (max-width:576px) {
+    .collection-page__bg .title {
+        margin-left: 15px;
+    }
+}

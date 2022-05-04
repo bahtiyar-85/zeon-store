@@ -25,3 +25,11 @@
         width: 70vw;
    }
 }
+@media (max-width: 576px){
+    .cart-page-list {
+        width: 92vw;
+        margin-right: 0 !important;
+    }
+ 
+
+}

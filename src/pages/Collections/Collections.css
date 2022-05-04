@@ -4,4 +4,9 @@
 .collection-bg {
     background-color: #f7f3f3;  
 }
+@media (max-width:576px) {
+    .collection-bg .title {
+        margin-left: 15px;
+    }
+}
 

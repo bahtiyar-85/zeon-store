@@ -28,6 +28,9 @@
     padding: 0 16px;
     display: block;
 }
-/* .help-item__hide {
-    display: none;
-} */
+@media (max-width:576px){
+    .help-item {
+        margin-left: 0 !important;
+    }
+}
+

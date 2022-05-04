@@ -28,3 +28,10 @@
     margin-top: 10px;
 
 }
+@media (max-width:375px) {
+    .thank-modal .modal-content {
+    position: absolute;
+    top:100px;
+    left: 20px;
+    }
+}
