@@ -5,13 +5,13 @@ import './Header.css';
 
 
 
-const Header = ({ setSearchValue, searchDropdown }) => {
+const Header = ({ setSearchValue }) => {
    
     
     return (
         <div className="header">
             <div className='container'>
-                <Navibar setSearchValue={setSearchValue} searchDropdown={searchDropdown}/>
+                <Navibar setSearchValue={setSearchValue} />
                 <BreadCrumbs />
             </div>
         </div>

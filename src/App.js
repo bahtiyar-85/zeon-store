@@ -26,7 +26,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header setSearchValue={setSearchValue} searchDropdown={searchDropdown}/>
+        <Header setSearchValue={setSearchValue} />
           <Routes>
             <Route path="/" element={<Main/>} /> 
             <Route path="/about-us" element={<AboutUs/>} /> 
@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/help" element={<Help/>} /> 
             <Route path="/product/:id" element={<ProductPage/>} /> 
             <Route path="/collection/:id" element={<CollectionPage/>} /> 
-            <Route path="/search" element={<SearchPage searchValue={searchValue} setSearchDropdown={setSearchDropdown}/>} /> 
+            <Route path="/search" element={<SearchPage searchValue={searchValue} />} /> 
             <Route path="/cart" element={<CartPage/>} />
             <Route path="/favorite" element={<FavoritePage/>} />
             <Route path="/offer" element={<OfferPage/>} /> 

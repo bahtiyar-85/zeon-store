@@ -8,7 +8,7 @@ import SimilarProducts from '../../components/SimilarProducts/SimilarProducts';
 import { PRODUCTS_API } from '../../helpers/consts';
 import './SearchPage.css';
 
-const SearchPage = ({searchValue, setSearchDropdown}) => {
+const SearchPage = ({searchValue}) => {
     const [searchResult, setSearchResult] = useState([]);
     const [pages, setPages] = useState(0);
     const [page, setPage] = useState(1);

@@ -13,7 +13,7 @@ import './Navbar.css';
 
 
 
-const Navibar = ({ setSearchValue, searchDropdown}) => {
+const Navibar = ({ setSearchValue }) => {
     const [state, setState] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
@@ -52,7 +52,6 @@ const Navibar = ({ setSearchValue, searchDropdown}) => {
 
     useEffect(()=>{
         if(state.length>2) getSearchQuery();
-        console.log('state', state);
     },[state]);
 
     return (
@@ -97,7 +96,6 @@ const Navibar = ({ setSearchValue, searchDropdown}) => {
                             <div className='dropdown-items' key={index} onClick={()=> {
                                 setState(item);
                                 setDropdownShow(false);
-                                console.log('onClick searchResult', searchResult);
                                 }}>
                                 {item} 
                             </div>

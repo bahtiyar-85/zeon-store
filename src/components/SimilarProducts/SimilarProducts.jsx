@@ -39,7 +39,7 @@ const SimilarProducts = ({title}) => {
 
     return (
         <div className='similar-products mt-4 pb-5'>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-start'>
                 <h2 className='title'>{title}</h2>
             </div>
             <Swiper
