@@ -22,7 +22,7 @@ const SearchPage = ({searchValue, setSearchDropdown}) => {
                 setSearchResult(result.data);
                 setPages(Math.ceil(result.data.length/8));
                 setEmptyQuery(false);
-                setSearchDropdown(prev => [searchValue, ...prev]);
+                // setSearchDropdown(prev => [searchValue, ...prev]);
             }   
             else {
                 setEmptyQuery(true);

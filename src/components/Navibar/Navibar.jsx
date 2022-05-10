@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Badge, Navbar, NavbarBrand } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../images/zeon-logo.png';
@@ -6,8 +6,9 @@ import search from '../../images/icons/search-icon.png';
 import favorite from '../../images/icons/favorite-icon.png';
 import shopping from '../../images/icons/shopping-bag.png';
 import { useSelector } from 'react-redux';
-import { Scrollbars } from '../../react-custom-scrollbars';
 import NavbarCollapse from '../NavbarCollapse/NavbarCollapse';
+import axios from 'axios';
+import { PRODUCTS_API } from '../../helpers/consts';
 import './Navbar.css';
 
 
@@ -18,19 +19,41 @@ const Navibar = ({ setSearchValue, searchDropdown}) => {
     const navigate = useNavigate();
     const cart = useSelector((state) => state.cart);
     const favorit = useSelector((state) => state.favorite);
-    // const [searchDropdown, setSearchDropdown] = useState([]);
-   
+    const [searchResult, setSearchResult] = useState([]);
+    const [dropdownShow, setDropdownShow] = useState(false);
+    
     function handleClick() {
         if(state!==''){
             setSearchValue(state);
-            // const array = searchDropdown.concat(state)
-            // setSearchDropdown(array);
             setState('');
+            setDropdownShow(false);
             if(location.pathname!=='/search') navigate('/search');
         } else {
             alert('Заполните поле ввода!');
         }
     }
+     async function getSearchQuery(){
+        try {
+            let result = await axios.get(`${PRODUCTS_API}?title=${state}`);
+           
+            if(result.data.length>0) {
+                const mySet = new Set();
+                result.data.forEach(item=> {
+                    mySet.add(item.title)
+                })
+                setSearchResult([...mySet]);
+            } else setSearchResult([]);
+            
+        } catch (error) {
+            setSearchResult([]);
+            console.error(error)
+        } 
+     }
+
+    useEffect(()=>{
+        if(state.length>2) getSearchQuery();
+        console.log('state', state);
+    },[state]);
 
     return (
         <>
@@ -58,6 +81,7 @@ const Navibar = ({ setSearchValue, searchDropdown}) => {
                     placeholder="Поиск..." 
                     value={state} 
                     className="form-control"
+                    onFocus={()=> setDropdownShow(true)}
                     onChange={(e)=> setState(e.target.value)}
                     onKeyPress={event => {
                         if (event.key === 'Enter') {
@@ -66,19 +90,21 @@ const Navibar = ({ setSearchValue, searchDropdown}) => {
                       }}
                 />
                 <img className='navbar-search-icon' src={search} onClick={handleClick}/>
-                <div className='dropdown-list'>
-                    {searchDropdown.length>3 ? (
-                    <Scrollbars style={{width: '100%', height: 140}} >
-                        {searchDropdown?.map((item, index)=>(
-                            <div className='dropdown-items' key={index} onClick={()=> setState(item)}>{item} </div>
-                        ))}
-                    </Scrollbars>
-                    ) : (
-                        searchDropdown?.map((item, index)=>(
-                            <div className='dropdown-items' key={index} onClick={()=> setState(item)}>{item} </div>
-                        ))
-                    )}
-                </div>
+                {dropdownShow && (
+                    <div className='dropdown-list'>
+                        {
+                        searchResult?.map((item, index)=>(
+                            <div className='dropdown-items' key={index} onClick={()=> {
+                                setState(item);
+                                setDropdownShow(false);
+                                console.log('onClick searchResult', searchResult);
+                                }}>
+                                {item} 
+                            </div>
+                        ))  
+                        }
+                    </div>
+                )}
             </div>
             <Navbar.Collapse className='navbar-items d-flex justify-content-between'>
                 <Link to='/favorite' style={{ textDecoration: 'none' }}>
