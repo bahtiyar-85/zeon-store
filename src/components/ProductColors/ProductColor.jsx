@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './ProductColor.css';
 
-const ProductColor = ({color, setCurrentColor}) => {
+const ProductColor = ({color, setCurrentColor, setCartButton, id }) => {
     const [active, setActive] = useState(0);
+    const {itemInCart} = useSelector((state) => state.cart);
+
     function handleClick(index, color){
+         let bool = false;
          setActive(index); 
-         setCurrentColor(color)  
+         setCurrentColor(color); 
+         itemInCart.forEach(item => {
+             if(id.concat(color)===item.cartId) bool = true;
+         }) 
+         bool ? setCartButton(true) : setCartButton(false); 
     }
     return (
         <div className='d-flex align-items-center '>

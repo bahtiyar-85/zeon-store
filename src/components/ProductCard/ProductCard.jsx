@@ -15,7 +15,6 @@ const ProductCard = ({color, ...props}) => {
     const favor = useSelector((state) => state.favorite);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    console.log('render');
     const [currentColor, setCurrentColor] = useState('');
     const [cartButton, setCartButton] = useState(false);
 
@@ -97,18 +96,20 @@ const ProductCard = ({color, ...props}) => {
                     {props?.images?.map((item, index)=> (
                         <img src={item} key={index} className={index<4 ? 'card-img' : 'card-img__mini'} onClick={()=>handleImageClick(item)}/>
                     ))}
-              
                 </div>
             </div>
             <div className='card-items'>
                 <div className='card-items__bg'>
                     <h3 className='card-title'>{props.title}</h3>
-                    <span className='card-item'>Артикул:</span><span className='card-value'>{props.article}</span>
+                    <span className='card-item'>Артикул:</span>
+                    <span className='card-value'>{props.article}</span>
                     <br/>
                     <div className='d-flex mt-2 mb-2 align-items-center'>
-                        <span className='card-item'>Цвет:</span><ProductColor color={color} setCurrentColor={setCurrentColor}/>
+                        <span className='card-item'>Цвет:</span>
+                        <ProductColor color={color} setCurrentColor={setCurrentColor} setCartButton={setCartButton} id={props.id}/>
                     </div>
-                    <span className='card-price'>{priceCalc(props.price, props.sale)+' p '}</span><span className='card-price__old'>{props.price+' p'}</span>
+                    <span className='card-price'>{priceCalc(props.price, props.sale)+' p '}</span>
+                    <span className='card-price__old'>{props.price+' p'}</span>
                     <h4 className='card-desc mt-2'>О товаре:</h4>
                     <p>{props.description}</p> 
                     <div className='d-flex flex-wrap'>

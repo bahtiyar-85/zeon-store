@@ -1,0 +1,15 @@
+.auth-modal .modal-content {
+    width: 420px;
+}
+.auth-modal span {
+    color:blue;
+    cursor: pointer;
+    margin-left: 10px;
+}
+div.modal {
+    top: 100px;
+}
+.auth-modal .modal-title {
+    display: flex;
+    justify-content: center;
+}

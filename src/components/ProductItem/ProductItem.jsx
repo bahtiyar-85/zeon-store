@@ -18,6 +18,7 @@ const ProductItem = ({color, ...props}) => {
     const navigate = useNavigate();
     const favor = useSelector((state) => state.favorite);
     const [currentColor, setCurrentColor] = useState(0);
+    const [cartButton, setCartButton] = useState(false);
     const swiperRef = useRef(null)
     
     function priceCalc({price, sale}){
@@ -85,7 +86,7 @@ const ProductItem = ({color, ...props}) => {
                 <span className='product-price'>{priceCalc(props)+' p'}</span> <span className='product-price__old ms-3'>{props.sale ? props.price+' p' : null}</span>
                 <br/>
                 <span className='product-size '> {'Размер: ' + props.size}</span><br/>
-                <ProductColor color={color} setCurrentColor={setCurrentColor}/>
+                <ProductColor color={color} setCurrentColor={setCurrentColor}  setCartButton={setCartButton} id={'1'}/>
             </div> 
         </div>
     );

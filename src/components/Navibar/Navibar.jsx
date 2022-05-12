@@ -5,22 +5,25 @@ import logo from '../../images/zeon-logo.png';
 import search from '../../images/icons/search-icon.png';
 import favorite from '../../images/icons/favorite-icon.png';
 import shopping from '../../images/icons/shopping-bag.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NavbarCollapse from '../NavbarCollapse/NavbarCollapse';
 import axios from 'axios';
 import { PRODUCTS_API } from '../../helpers/consts';
+import { removeUser } from '../../store/userSlice';
 import './Navbar.css';
 
 
 
-const Navibar = ({ setSearchValue }) => {
+const Navibar = ({ setSearchValue, handleShow }) => {
     const [state, setState] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
     const cart = useSelector((state) => state.cart);
     const favorit = useSelector((state) => state.favorite);
+    const {email} = useSelector((state) => state.user);
     const [searchResult, setSearchResult] = useState([]);
     const [dropdownShow, setDropdownShow] = useState(false);
+    const dispatch = useDispatch();
     
     function handleClick() {
         if(state!==''){
@@ -66,7 +69,13 @@ const Navibar = ({ setSearchValue }) => {
                         <Link to='/news' style={{ textDecoration: 'none' }}><span className="me-3 ">Новости</span></Link>
                     </Navbar.Collapse> 
                 </div>
+                <div>
                 <a href='tel:+996 000 00 00 00' style={{ textDecoration: 'none' }}><span>Тел: +996 000 00 00 00</span></a>
+                <button className='navbar-btn__login' onClick={email ? () => dispatch(removeUser()): handleShow }>
+                    {email ? "Выйти" : "Войти"}
+                </button>
+                </div>
+               
             </div>  
         </Navbar>   
       

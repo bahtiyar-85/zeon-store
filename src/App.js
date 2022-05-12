@@ -15,14 +15,15 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import CartPage from './pages/CartPage/CartPage';
 import FavoritePage from './pages/FavoritePage/FavoritePage';
-import 'swiper/css';
 import OfferPage from './pages/OfferPage/OfferPage';
+import './firebase'
+import 'swiper/css';
 import './App.css';
 
 
 const App = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [searchDropdown, setSearchDropdown] = useState([]);
+ 
   return (
     <Provider store={store}>
       <BrowserRouter>

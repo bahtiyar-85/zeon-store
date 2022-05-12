@@ -104,10 +104,19 @@
     opacity: 1;
     visibility: visible;
 }
-/* .navbar-search input:focus .dropdown-list{
-    opacity: 1;
-    visibility: visible;
-} */
+
+.navbar-btn__login{
+    border: none;
+    background-color: #fff;
+    margin-left: 5px;
+    color:blue;
+    font-weight: 500;
+}
+.navbar-btn__login:hover {
+    transform: scale(1.1);
+    transition-duration: .2s;
+}
+
 .navbar-collapse-list {
     display: none;
 }

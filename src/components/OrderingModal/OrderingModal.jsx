@@ -6,8 +6,13 @@ import PhoneInputWithCountry from 'react-phone-number-input/react-hook-form'
 import './OrderingModal.css';
 import { cleanCart } from '../../store/cartSlice';
 import { useDispatch } from 'react-redux';
+import { getFirestore, collection, doc, setDoc} from 'firebase/firestore';
 
 const OrderingModal = ({show, setShow, handleShowModal}) => {
+    const db = getFirestore();
+    const newCityRef = doc(collection(db, "orders"));
+
+
     const dispatch = useDispatch();
     const {
         register,
@@ -23,6 +28,7 @@ const OrderingModal = ({show, setShow, handleShowModal}) => {
     
    
     const onSubmit = (data) => {
+        setDoc(newCityRef, data);
         // alert(JSON.stringify(data));
         reset();
         // e.preventDefault();
